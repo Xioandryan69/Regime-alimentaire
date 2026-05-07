@@ -22,9 +22,7 @@ $routes->post('admin/loginCheck', 'AdminAuth::loginCheck');
 // Se déconnecter
 $routes->get('admin/logout', 'AdminAuth::logout');
 
-$routes->get('admin/dashboard', function() {
-    return view('admin/dashboard');
-}, ['filter' => 'adminAuth']);
+$routes->get('admin/dashboard', 'AdminDashboard::index', ['filter' => 'adminAuth']);
 
 $routes->get('/login', 'AuthController::loginForm');
 $routes->post('/login', 'AuthController::login');
