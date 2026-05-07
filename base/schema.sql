@@ -34,7 +34,7 @@ CREATE TABLE recommendations_weight (
 
 --health rules 
 CREATE TABLE health_rules (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     type VARCHAR(50), -- IMC, poids, calories
     age_min INT,
     age_max INT,
@@ -84,7 +84,7 @@ CREATE TABLE regime_user(
     id INT PRIMARY KEY AUTO_INCREMENT ,
     id_user INT ,
     type_regime INT,
-   FOREIGN KEY (id_user) REFERENCES users(id)
+   FOREIGN KEY (id_user) REFERENCES users(id),
     FOREIGN KEY type_regime REFERENCES type_regimes(id)
 );
 --regimes 
@@ -94,7 +94,6 @@ CREATE TABLE regimes
     nom VARCHAR(100),
     description TEXT,
     regime_user INT,
-
     calories INT,
     prix DECIMAL(10,2),
     duree_jours INT,
@@ -164,7 +163,7 @@ CREATE TABLE abonnements
 
 -- imc categories 
 CREATE TABLE imc_categories (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     min_value DECIMAL(4,2),
     max_value DECIMAL(4,2),
     label VARCHAR(50)
