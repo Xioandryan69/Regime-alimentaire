@@ -10,7 +10,8 @@ CREATE TABLE users (
     password VARCHAR(255),
     genre ENUM('H','F'),
     date_naissance DATE,
-    created_at DATETIME
+    role          ENUM('user','admin') NOT NULL DEFAULT 'user',
+    created_at    DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 --ages -ranges 
 CREATE TABLE age_ranges (
@@ -83,7 +84,7 @@ CREATE TABLE regime_user(
     id INT PRIMARY KEY AUTO_INCREMENT ,
     id_user INT ,
     type_regime INT,
-    FOREIGN KEY id_user REFERENCES users(id),
+   FOREIGN KEY (id_user) REFERENCES users(id)
     FOREIGN KEY type_regime REFERENCES type_regimes(id)
 );
 --regimes 
@@ -97,7 +98,7 @@ CREATE TABLE regimes
     calories INT,
     prix DECIMAL(10,2),
     duree_jours INT,
-    CONSTRAINT  id_regime_user FOREIGN KEY id_type_regime REFERENCE regime_user(id)
+    CONSTRAINT  id_regime_user FOREIGN KEY (regime_user) REFERENCES regime_user(id)
 );
 
 -- activites 
