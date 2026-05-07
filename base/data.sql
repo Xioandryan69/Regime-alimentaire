@@ -54,7 +54,7 @@ INSERT INTO recommendations_weight (age_range_id, genre, imc_min, imc_max, poids
 (5, 'F', 21.00, 26.50, 58.00, 86.00);
  
 -- users (1 admin + 5 utilisateurs)
--- password_hash de "Test@1234" — à remplacer avec password_hash() en PHP
+-- password_hash de "password" — à remplacer avec password_hash() en PHP
 INSERT INTO users (nom, prenom, email, password, genre, date_naissance, role) VALUES
 ('Admin',        'Super',    'admin@regime.mg',    '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'H', '1985-01-01', 'admin'),
 ('Rakoto',       'Gaelle',   'gaelle@test.mg',     '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'F', '2000-03-15', 'user'),
