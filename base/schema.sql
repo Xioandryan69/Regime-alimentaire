@@ -5,6 +5,7 @@ USE regimeAlimentaire;
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100),
+    prenom VARCHAR(100),
     email VARCHAR(150) UNIQUE,
     password VARCHAR(255),
     genre ENUM('H','F'),
@@ -69,20 +70,36 @@ CREATE TABLE user_objectifs
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (objectif_id) REFERENCES objectifs(id)
 );
+-- type de reggimes
+CREATE TABLE type_regimes
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50),
+    pourcentage DECIMAL(10,2)
+);
 
+-- regime_user 
+CREATE TABLE regime_user(
+    id INT PRIMARY KEY AUTO_INCREMENT ,
+    id_user INT ,
+    type_regime INT,
+    FOREIGN KEY id_user REFERENCES users(id),
+    FOREIGN KEY type_regime REFERENCES type_regimes(id)
+);
 --regimes 
 CREATE TABLE regimes
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nom VARCHAR(100),
     description TEXT,
-    pourcentage_viande INT,
-    pourcentage_poisson INT,
-    pourcentage_volaille INT,
+    regime_user INT,
+
     calories INT,
     prix DECIMAL(10,2),
-    duree_jours INT
+    duree_jours INT,
+    CONSTRAINT  id_regime_user FOREIGN KEY id_type_regime REFERENCE regime_user(id)
 );
+
 -- activites 
 CREATE TABLE activites
 (
