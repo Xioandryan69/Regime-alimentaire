@@ -21,19 +21,16 @@ class AdminAuth extends BaseController
         $password = $this->request->getPost('password');
 
         $userModel = new \App\Models\UserModel();
-
-        // On cherche un utilisateur avec cet email ET dont le rôle est 'admin'
-        // J'utilise 'email' car la colonne 'username' n'existe pas dans ta table users
         $admin = $userModel->where('email', $username)
                            ->where('role', 'admin')
                            ->first();
 
-        // On vérifie avec password_verify car le mot de passe est haché dans la BDD (Test@1234)
+        // On vérifie avec password_verify car le mot de passe est haché dans la BDD (password)
         if ($admin && password_verify($password, $admin['password'])) {
             
             $ses_data = [
                 'id'              => $admin['id'],
-                'username'        => $admin['nom'] . ' ' . $admin['prenom'], // On concatène le nom et le prenom
+                'username'        => $admin['nom'] . ' ' . $admin['prenom'],
                 'email'           => $admin['email'],
                 'isAdminLoggedIn' => true
             ];
