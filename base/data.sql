@@ -1,3 +1,4 @@
+USE regimeAlimentaire;
 -- imc_categories
 INSERT INTO imc_categories (min_value, max_value, label) VALUES
 (0.00,  18.49, 'Insuffisance pondérale'),
@@ -79,7 +80,7 @@ INSERT INTO user_objectifs (user_id, objectif_id) VALUES
 (6, 3);  -- Jean    → Maintien
  
 -- regime_user : association utilisateur ↔ type de régime
-INSERT INTO regime_user (id_user, type_regime) VALUES
+INSERT INTO regime_user (id_user, type_regime_id) VALUES
 (2, 2),  -- Gaelle   → Poisson
 (3, 1),  -- Sarobidy → Viande
 (4, 3),  -- Ny Avo   → Volaille
@@ -87,7 +88,7 @@ INSERT INTO regime_user (id_user, type_regime) VALUES
 (6, 3);  -- Jean     → Volaille
  
 -- regimes (5 régimes)
-INSERT INTO regimes (nom, description, regime_user, calories, prix, duree_jours) VALUES
+INSERT INTO regimes (nom, description, regime_user_id, calories, prix, duree_jours) VALUES
 (
   'Régime Méditerranéen',
   'Régime équilibré inspiré du bassin méditerranéen. Riche en légumes, poisson et huile d\'olive. Idéal pour une perte de poids progressive.',
