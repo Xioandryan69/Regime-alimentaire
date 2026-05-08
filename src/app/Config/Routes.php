@@ -11,6 +11,7 @@ use CodeIgniter\Router\RouteCollection;
 // =============================================
 
 $routes->get('/', 'Home::index');
+
 // --- Routes pour l'authentification Admin ---
 
 // Afficher le formulaire
@@ -24,7 +25,16 @@ $routes->get('admin/logout', 'AdminAuth::logout');
 
 $routes->get('admin/dashboard', 'AdminDashboard::index', ['filter' => 'adminAuth']);
 
-$routes->get('/login', 'AuthController::loginForm');
-$routes->post('/login', 'AuthController::login');
-$routes->get('/logout', 'AuthController::logout');
+// --- Routes pour l'authentification Users ---
+
+// Afficher le formulaire
+$routes->get('users/login', 'UsersAuth::login');
+
+// Traiter le formulaire
+$routes->post('users/loginCheck', 'UsersAuth::loginCheck');
+
+// Se déconnecter
+$routes->get('users/logout', 'UsersAuth::logout');
+
+$routes->get('users/homepage', 'UsersHomepage::index', ['filter' => 'usersAuth']);
 

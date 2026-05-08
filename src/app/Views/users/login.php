@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Login admin - My Régime</title>
+    <title> Login users - My Régime</title>
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -35,7 +35,7 @@
                 <div class="col-md-6 col-lg-5">
                     <div class="card shadow-sm border-0">
                         <div class="card-body p-4 p-md-5">
-                            <h2 class="text-center mb-4 fw-bold">Connexion Admin</h2>
+                            <h2 class="text-center mb-4 fw-bold">Connexion</h2>
 
                             <!-- Affichage des messages d'erreur de session -->
                             <?php if(session()->getFlashdata('error')): ?>
@@ -44,12 +44,12 @@
                                 </div>
                             <?php endif; ?>
 
-                            <form action="<?= base_url('admin/loginCheck') ?>" method="post">
+                            <form action="<?= base_url('users/loginCheck') ?>" method="post">
                                 <?= csrf_field() ?>
                                 
                                 <div class="mb-3">
                                     <label for="username" class="form-label">E-mail</label>
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Entrez votre nom d'utilisateur" value="admin@regime.mg" required>
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="Entrez votre nom d'utilisateur" value="jean@test.mg" required>
                                 </div>
                                 <div class="mb-4">
                                     <label for="password" class="form-label">Mot de passe</label>
@@ -74,5 +74,5 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script></body>
+    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 </html>

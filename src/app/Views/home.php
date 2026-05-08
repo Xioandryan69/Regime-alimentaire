@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Régime - Atteignez vos objectifs de santé</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 </head>
@@ -22,10 +22,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-success ms-2" href="#">Connexion</a>
+                        <a class="nav-link btn btn-outline-success ms-2" href="<?= base_url('/users/login') ?>">Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-success ms-2" href="#">Inscription</a>
+                        <a class="nav-link btn btn-outline-success ms-2" href="<?= base_url('/users/register') ?>">Inscription</a>
                     </li>
                 </ul>
             </div>
@@ -118,6 +118,6 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 </body>
 </html>
