@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion Administration - My Régime</title>
+    <title> Login admin - My Régime</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-success ms-2" href="<?= base_url('/admin/login') ?>">Administration</a>
+                        <a class="nav-link btn btn-outline-success ms-2" href="<?= base_url('/') ?>"><-Retour</a>
                     </li>
                 </ul>
             </div>
@@ -48,12 +48,12 @@
                                 <?= csrf_field() ?>
                                 
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Nom d'utilisateur (ou email)</label>
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Entrez votre nom d'utilisateur" required>
+                                    <label for="username" class="form-label">E-mail</label>
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="Entrez votre nom d'utilisateur" value="admin@regime.mg" required>
                                 </div>
                                 <div class="mb-4">
                                     <label for="password" class="form-label">Mot de passe</label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Entrez votre mot de passe" required>
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Entrez votre mot de passe" value="password" required>
                                 </div>
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-success btn-lg">Se connecter</button>

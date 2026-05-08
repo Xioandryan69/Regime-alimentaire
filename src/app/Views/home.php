@@ -15,6 +15,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold text-success" href="#">My Régime</a>
+            <a class="nav-link btn btn-outline-success ms-2" href="<?= base_url('/admin/login') ?>">Administration</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
