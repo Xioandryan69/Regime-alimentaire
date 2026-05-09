@@ -1,0 +1,710 @@
+DEBUG - 2026-05-09 07:32:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 07:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 07:32:45 --> CSRF token verified.
+DEBUG - 2026-05-09 07:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 07:32:45 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(26): CodeIgniter\BaseModel->first()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(26): CodeIgniter\BaseModel->first()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 07:32:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'172.17.0.1' (using password: NO)
+[Method: POST, Route: users/loginCheck]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UsersAuth.php(26): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-09 07:37:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 07:37:07 --> CSRF token verified.
+DEBUG - 2026-05-09 07:37:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 07:37:07 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/AdminAuth.php(26): CodeIgniter\BaseModel->first()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\AdminAuth->loginCheck()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/AdminAuth.php(26): CodeIgniter\BaseModel->first()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\AdminAuth->loginCheck()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 07:37:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'172.17.0.1' (using password: NO)
+[Method: POST, Route: admin/loginCheck]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/AdminAuth.php(26): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\AdminAuth->loginCheck()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-09 07:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 07:59:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 07:59:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 07:59:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 07:59:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 08:13:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 08:14:36 --> CSRF token verified.
+ERROR - 2026-05-09 08:14:36 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#15 {main}
+CRITICAL - 2026-05-09 08:14:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'172.17.0.1' (using password: NO)
+[Method: POST, Route: users/register/step1]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+ 5 SYSTEMPATH/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+ 6 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+ 7 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 8 APPPATH/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+ 9 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+10 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-09 08:14:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 08:14:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 08:14:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 08:15:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 08:15:57 --> CSRF token verified.
+ERROR - 2026-05-09 08:15:57 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#15 {main}
+CRITICAL - 2026-05-09 08:15:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'172.17.0.1' (using password: NO)
+[Method: POST, Route: users/register/step1]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+ 5 SYSTEMPATH/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+ 6 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+ 7 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 8 APPPATH/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+ 9 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+10 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+INFO - 2026-05-09 08:21:58 --> CSRF token verified.
+ERROR - 2026-05-09 08:21:58 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#15 {main}
+CRITICAL - 2026-05-09 08:21:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'172.17.0.1' (using password: NO)
+[Method: POST, Route: users/register/step1]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+ 5 SYSTEMPATH/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+ 6 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+ 7 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 8 APPPATH/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+ 9 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+10 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+INFO - 2026-05-09 08:22:01 --> CSRF token verified.
+ERROR - 2026-05-09 08:22:01 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'172.17.0.1' (using password: NO) in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#15 {main}
+CRITICAL - 2026-05-09 08:22:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'172.17.0.1' (using password: NO)
+[Method: POST, Route: users/register/step1]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+ 5 SYSTEMPATH/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+ 6 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+ 7 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 8 APPPATH/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+ 9 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+10 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+INFO - 2026-05-09 08:33:22 --> CSRF token verified.
+ERROR - 2026-05-09 08:33:22 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#16 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#17 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#15 {main}
+CRITICAL - 2026-05-09 08:33:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution
+[Method: POST, Route: users/register/step1]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+ 5 SYSTEMPATH/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+ 6 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+ 7 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 8 APPPATH/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+ 9 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+10 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+INFO - 2026-05-09 08:33:25 --> CSRF token verified.
+ERROR - 2026-05-09 08:33:25 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#16 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#17 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#15 {main}
+CRITICAL - 2026-05-09 08:33:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution
+[Method: POST, Route: users/register/step1]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+ 5 SYSTEMPATH/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+ 6 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+ 7 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 8 APPPATH/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+ 9 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+10 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-09 08:34:27 --> CodeIgniter\Security\Exceptions\SecurityException: The action you requested is not allowed.
+[Method: POST, Route: users/register/step1]
+in SYSTEMPATH/Security/Security.php on line 258.
+ 1 SYSTEMPATH/Security/Security.php(258): CodeIgniter\Security\Exceptions\SecurityException::forDisallowedAction()
+ 2 SYSTEMPATH/Filters/CSRF.php(52): CodeIgniter\Security\Security->verify()
+ 3 SYSTEMPATH/Filters/Filters.php(241): CodeIgniter\Filters\CSRF->before()
+ 4 SYSTEMPATH/Filters/Filters.php(221): CodeIgniter\Filters\Filters->runBefore()
+ 5 SYSTEMPATH/CodeIgniter.php(465): CodeIgniter\Filters\Filters->run()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-09 08:34:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 08:34:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 08:35:03 --> CSRF token verified.
+ERROR - 2026-05-09 08:35:03 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#16 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#17 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#15 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#16 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution in /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+#5 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+#6 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+#7 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Controller.php(136): CodeIgniter\Validation\Validation->run()
+#8 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/app/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+#9 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+#10 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#11 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#12 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#13 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#14 /home/gaelle/Documents/L2/S4/Systeme d'information/Exo/Regime_alimentaire/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#15 {main}
+CRITICAL - 2026-05-09 08:35:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for mysql failed: Temporary failure in name resolution
+[Method: POST, Route: users/register/step1]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Validation/Rules.php(175): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/Validation/StrictRules/Rules.php(187): CodeIgniter\Validation\Rules->is_unique()
+ 5 SYSTEMPATH/Validation/Validation.php(345): CodeIgniter\Validation\StrictRules\Rules->is_unique()
+ 6 SYSTEMPATH/Validation/Validation.php(210): CodeIgniter\Validation\Validation->processRules()
+ 7 SYSTEMPATH/Controller.php(136): CodeIgniter\Validation\Validation->run()
+ 8 APPPATH/Controllers/UsersAuth.php(102): CodeIgniter\Controller->validate()
+ 9 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->registerStep1()
+10 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+11 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+12 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+14 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+INFO - 2026-05-09 08:39:52 --> CSRF token verified.
+DEBUG - 2026-05-09 08:39:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 08:40:31 --> CSRF token verified.
+DEBUG - 2026-05-09 08:40:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 08:40:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 08:41:15 --> CSRF token verified.
+DEBUG - 2026-05-09 08:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 08:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 08:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:00:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 09:00:38 --> CSRF token verified.
+DEBUG - 2026-05-09 09:00:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 09:01:05 --> CSRF token verified.
+DEBUG - 2026-05-09 09:01:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:01:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-05-09 09:34:32 --> ParseError: syntax error, unexpected token "<<"
+[Method: GET, Route: users/register/step2]
+in APPPATH/Controllers/UsersAuth.php on line 14.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 5 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 7 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-09 09:34:33 --> ParseError: syntax error, unexpected token "<<"
+[Method: GET, Route: users/register/step2]
+in APPPATH/Controllers/UsersAuth.php on line 14.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 5 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 7 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-09 09:34:42 --> ParseError: syntax error, unexpected token "<<"
+[Method: GET, Route: users/register]
+in APPPATH/Controllers/UsersAuth.php on line 14.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 5 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 7 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-09 09:41:16 --> ParseError: syntax error, unexpected token "<<"
+[Method: GET, Route: users/login]
+in APPPATH/Controllers/UsersAuth.php on line 14.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 5 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 7 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-09 09:41:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-05-09 09:41:25 --> ParseError: syntax error, unexpected token "<<"
+[Method: GET, Route: users/register]
+in APPPATH/Controllers/UsersAuth.php on line 14.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 5 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 7 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-05-09 09:41:28 --> ParseError: syntax error, unexpected token "<<"
+[Method: GET, Route: users/login]
+in APPPATH/Controllers/UsersAuth.php on line 14.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 4 SYSTEMPATH/Router/Router.php(792): class_exists()
+ 5 SYSTEMPATH/Router/Router.php(230): CodeIgniter\Router\Router->processRouteAttributes()
+ 6 SYSTEMPATH/CodeIgniter.php(829): CodeIgniter\Router\Router->handle()
+ 7 SYSTEMPATH/CodeIgniter.php(441): CodeIgniter\CodeIgniter->tryToRouteIt()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-09 09:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 09:44:31 --> CSRF token verified.
+DEBUG - 2026-05-09 09:44:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:44:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:44:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:44:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:44:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:45:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:45:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 09:47:07 --> CSRF token verified.
+DEBUG - 2026-05-09 09:47:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 09:47:56 --> CSRF token verified.
+DEBUG - 2026-05-09 09:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 09:48:20 --> CSRF token verified.
+DEBUG - 2026-05-09 09:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:48:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 09:48:56 --> CSRF token verified.
+DEBUG - 2026-05-09 09:48:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:48:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 09:52:17 --> CSRF token verified.
+DEBUG - 2026-05-09 09:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 09:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
