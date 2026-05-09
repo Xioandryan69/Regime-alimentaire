@@ -7,7 +7,7 @@ class UsersAuth extends BaseController
     public function login()
     {
         if (session()->get('isUsersLoggedIn')) {
-            return redirect()->to('/users/dashboard'); 
+            return redirect()->to('/users/homepage'); 
         }
 
         return view('users/login');
