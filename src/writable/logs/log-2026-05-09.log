@@ -2780,3 +2780,274 @@ in SYSTEMPATH/Database/BaseConnection.php on line 606.
 INFO - 2026-05-09 17:27:23 --> CSRF token verified.
 DEBUG - 2026-05-09 17:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-05-09 17:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 19:12:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 19:12:26 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'dev1'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'dev1', Object(SensitiveParameterValue), 'regimeAlimentai...', 3306, '', 0)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminListUsers.php(19): CodeIgniter\Database\BaseConnection->query('SELECT nom FROM...')
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminListUsers->affProfil('4')
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminListUsers.php(19): CodeIgniter\Database\BaseConnection->query('SELECT nom FROM...')
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminListUsers->affProfil('4')
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#9 {main}
+CRITICAL - 2026-05-09 19:12:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: admin/profilUser/4]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Controllers\AdminListUsers.php(19): CodeIgniter\Database\BaseConnection->query('SELECT nom FROM users WHERE id = 4')
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AdminListUsers->affProfil('4')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-09 19:12:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 19:12:27 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'dev1'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'dev1', Object(SensitiveParameterValue), 'regimeAlimentai...', 3306, '', 0)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminListUsers.php(19): CodeIgniter\Database\BaseConnection->query('SELECT nom FROM...')
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminListUsers->affProfil('4')
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminListUsers.php(19): CodeIgniter\Database\BaseConnection->query('SELECT nom FROM...')
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminListUsers->affProfil('4')
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#9 {main}
+CRITICAL - 2026-05-09 19:12:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: admin/profilUser/4]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH\Controllers\AdminListUsers.php(19): CodeIgniter\Database\BaseConnection->query('SELECT nom FROM users WHERE id = 4')
+ 3 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AdminListUsers->affProfil('4')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+ 5 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-09 19:12:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 19:12:28 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'dev1'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'dev1', Object(SensitiveParameterValue), 'regimeAlimentai...', 3306, '', 0)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminListUsers.php(10): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminListUsers->listUsers()
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminListUsers.php(10): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminListUsers->listUsers()
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-05-09 19:12:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: admin/listUsers]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `role` = :role:
+ORDER BY `nom` ASC', [...], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\AdminListUsers.php(10): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AdminListUsers->listUsers()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-09 19:12:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 19:12:29 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'dev1'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'dev1', Object(SensitiveParameterValue), 'regimeAlimentai...', 3306, '', 0)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminDashboard.php(11): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminDashboard->index()
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminDashboard))
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminDashboard.php(11): CodeIgniter\Database\BaseBuilder->countAllResults()
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminDashboard->index()
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminDashboard))
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2026-05-09 19:12:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+WHERE `role` = :role:', [...], false)
+ 3 APPPATH\Controllers\AdminDashboard.php(11): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AdminDashboard->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminDashboard))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-09 19:12:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 19:12:30 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'dev1'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'dev1', Object(SensitiveParameterValue), 'regimeAlimentai...', 3306, '', 0)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminListUsers.php(10): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminListUsers->listUsers()
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminListUsers.php(10): CodeIgniter\BaseModel->findAll()
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminListUsers->listUsers()
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-05-09 19:12:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: admin/listUsers]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `role` = :role:
+ORDER BY `nom` ASC', [...], false)
+ 3 SYSTEMPATH\Model.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\AdminListUsers.php(10): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AdminListUsers->listUsers()
+ 7 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminListUsers))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-09 19:12:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 19:12:30 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'dev1'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'dev1', Object(SensitiveParameterValue), 'regimeAlimentai...', 3306, '', 0)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminDashboard.php(11): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminDashboard->index()
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminDashboard))
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\app\Controllers\AdminDashboard.php(11): CodeIgniter\Database\BaseBuilder->countAllResults()
+#4 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(951): App\Controllers\AdminDashboard->index()
+#5 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminDashboard))
+#6 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#9 C:\xampp\htdocs\www\s3_s4\06-05-2026\src\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2026-05-09 19:12:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: admin/dashboard]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `users`
+WHERE `role` = :role:', [...], false)
+ 3 APPPATH\Controllers\AdminDashboard.php(11): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 4 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\AdminDashboard->index()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AdminDashboard))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-05-09 19:14:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 19:14:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 19:14:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
