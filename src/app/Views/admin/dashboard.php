@@ -6,7 +6,7 @@
     <title>Tableau de Bord Administration - My Régime</title>
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/all.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>">
 </head>
 <body class="bg-light">
@@ -111,7 +111,7 @@
     <!-- Bootstrap JS -->
     <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>    
     <!-- Chart.js pour les graphiques -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="<?= base_url('assets/js/chart.min.js') ?>"></script>
     
     <script>
         // --- Graphique des Revenus (Ligne) ---
