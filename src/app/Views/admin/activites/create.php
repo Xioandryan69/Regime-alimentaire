@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Créer un Régime - Administration</title>
+    <title>Créer une activité - Administration</title>
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/all.min.css') ?>">
@@ -20,15 +20,15 @@
                 <div class="col-md-8">
                     <div class="card shadow-sm border-0">
                         <div class="card-header bg-success text-white py-3">
-                            <h5 class="mb-0 fw-bold"><i class="fas fa-plus-circle me-2"></i> Ajouter un nouveau régime</h5>
+                            <h5 class="mb-0 fw-bold"><i class="fas fa-plus-circle me-2"></i> Ajouter une nouvelle activité</h5>
                         </div>
                         <div class="card-body p-4">
-                            <form action="<?= base_url('admin/regimes/store') ?>" method="post">
+                            <form action="<?= base_url('admin/activites/store') ?>" method="post">
                                 <?= csrf_field() ?>
                                 
                                 <div class="mb-3">
-                                    <label for="nom" class="form-label fw-bold">Nom du régime</label>
-                                    <input type="text" class="form-control" id="nom" name="nom" required placeholder="Ex: Régime hyper-protéiné">
+                                    <label for="nom" class="form-label fw-bold">Nom de l'activité</label>
+                                    <input type="text" class="form-control" id="nom" name="nom" required placeholder="Ex: Jumping-Jack">
                                 </div>
 
                                 <div class="mb-3">
@@ -38,22 +38,18 @@
 
                                 <div class="row mb-3">
                                     <div class="col-md-4">
-                                        <label for="calories" class="form-label fw-bold">Calories (par jour)</label>
-                                        <input type="number" class="form-control" id="calories" name="calories" required>
+                                        <label for="calories_brulees" class="form-label fw-bold">Calories brulées</label>
+                                        <input type="number" class="form-control" id="calories_brulees" name="calories_brulees" required>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="duree_jours" class="form-label fw-bold">Durée (en jours)</label>
-                                        <input type="number" class="form-control" id="duree_jours" name="duree_jours" required>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="prix" class="form-label fw-bold">Prix (Ar)</label>
-                                        <input type="number" step="0.01" class="form-control" id="prix" name="prix" required>
+                                        <label for="duree_minutes" class="form-label fw-bold">Durée (en minutes)</label>
+                                        <input type="number" class="form-control" id="duree_minutes" name="duree_minutes" required>
                                     </div>
                                 </div>
 
                                 <div class="d-flex justify-content-between mt-4">
-                                    <a href="<?= base_url('admin/regimes') ?>" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i> Annuler</a>
-                                    <button type="submit" class="btn btn-success"><i class="fas fa-save me-1"></i> Créer le régime</button>
+                                    <a href="<?= base_url('admin/activites') ?>" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i> Annuler</a>
+                                    <button type="submit" class="btn btn-success"><i class="fas fa-save me-1"></i> Créer le activité</button>
                                 </div>
                             </form>
                         </div>

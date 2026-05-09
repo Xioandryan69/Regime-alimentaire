@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des Régimes - Administration</title>
+    <title>Gestion des activités - Administration</title>
     <!-- Bootstrap CSS -->
     <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/all.min.css') ?>">
@@ -17,8 +17,8 @@
     <section class="py-5">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 class="fw-bold">Liste des Régimes</h2>
-                <a href="<?= base_url('admin/regimes/create') ?>" class="btn btn-success"><i class="fas fa-plus me-1"></i> Nouveau Régime</a>
+                <h2 class="fw-bold">Liste des activités</h2>
+                <a href="<?= base_url('admin/activites/create') ?>" class="btn btn-success"><i class="fas fa-plus me-1"></i> Nouvelle Activité</a>
             </div>
 
             <?php if(session()->getFlashdata('success')): ?>
@@ -35,35 +35,33 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nom</th>
-                                    <th>Calories (jour)</th>
+                                    <th>Calories brulées</th>
                                     <th>Durée</th>
-                                    <th>Prix</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($regimes as $regime): ?>
+                                <?php foreach($activites as $activite): ?>
                                 <tr>
-                                    <td><?= esc($regime['id']) ?></td>
-                                    <td class="fw-bold text-primary"><?= esc($regime['nom']) ?></td>
-                                    <td><?= esc($regime['calories']) ?> kcal</td>
-                                    <td><?= esc($regime['duree_jours']) ?> jours</td>
-                                    <td><span class="badge bg-success"><?= number_format($regime['prix'], 0, ',', ' ') ?> Ar</span></td>
+                                    <td><?= esc($activite['id']) ?></td>
+                                    <td class="fw-bold text-primary"><?= esc($activite['nom']) ?></td>
+                                    <td><?= esc($activite['calories_brulees']) ?> kcal</td>
+                                    <td><?= esc($activite['duree_minutes']) ?> minutes</td>
                                     <td class="text-center">
                                         <div class="btn-group" role="group">
-                                            <a href="<?= base_url('admin/regimes/edit/'.$regime['id']) ?>" class="btn btn-sm btn-primary" title="Modifier">
+                                            <a href="<?= base_url('admin/activites/edit/'.$activite['id']) ?>" class="btn btn-sm btn-primary" title="Modifier">
                                                 <i class="fas fa-edit"></i> Modifier
                                             </a>
-                                            <a href="<?= base_url('admin/regimes/delete/'.$regime['id']) ?>" class="btn btn-sm btn-danger" title="Supprimer" onclick="return confirm('Es-tu sûr de vouloir supprimer ce régime ?');">
+                                            <a href="<?= base_url('admin/activites/delete/'.$activite['id']) ?>" class="btn btn-sm btn-danger" title="Supprimer" onclick="return confirm('Es-tu sûr de vouloir supprimer cette activitée ?');">
                                                 <i class="fas fa-trash-alt"></i> Supprimer
                                             </a>
                                         </div>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
-                                <?php if(empty($regimes)): ?>
+                                <?php if(empty($activites)): ?>
                                     <tr>
-                                        <td colspan="6" class="text-center py-4 text-muted">Aucun régime trouvé.</td>
+                                        <td colspan="6" class="text-center py-4 text-muted">Aucune activité trouvé.</td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
