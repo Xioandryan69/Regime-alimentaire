@@ -1,3 +1,5 @@
+.gitignore
+``` bash
 # =========================
 # CODEIGNITER 4
 # =========================
@@ -37,5 +39,4 @@ Thumbs.db
 
 # Logs
 *.log
-src/.env
-src/ writable/*
+```
