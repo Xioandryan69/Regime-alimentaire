@@ -177,7 +177,7 @@
                                                class="form-control <?= (isset($validation) && $validation->hasError('date_naissance')) ? 'is-invalid' : '' ?>"
                                                name="date_naissance" id="date_naissance"
                                                value="<?= old('date_naissance', session()->get('register_step1.date_naissance') ?? '') ?>"
-                                               max="<?= date('Y-m-d', strtotime('-10 years')) ?>"
+                                               max="<?= date('Y-m-d', strtotime('-15 years')) ?>"
                                                required>
                                         <?php if(isset($validation) && $validation->hasError('date_naissance')): ?>
                                             <div class="invalid-feedback"><?= $validation->getError('date_naissance') ?></div>

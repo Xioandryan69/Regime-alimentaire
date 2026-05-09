@@ -31,3 +31,5 @@ $routes->post('users/register/step2',  'UsersAuth::registerStep2Check'); // Trai
 
 // --- Page d'accueil connectée ---
 $routes->get('users/homepage', 'UsersHomepage::index', ['filter' => 'usersAuth']);
+$routes->post('users/updateProfile', 'UsersHomepage::updateProfile', ['filter' => 'usersAuth']);
+$routes->post('users/updateObjectif', 'UsersHomepage::updateObjectif', ['filter' => 'usersAuth']);

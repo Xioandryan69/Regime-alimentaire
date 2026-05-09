@@ -8,26 +8,115 @@ class UsersHomepage extends BaseController
     {
         $db = \Config\Database::connect();
         
-        $nbUsers = $db->table('users')->where('role', 'user')->countAllResults();
-        
-        $revenus = $db->table('transactions')->selectSum('montant')->get()->getRow()->montant ?? 0;
-        
-        $nbRegimesVendus = $db->table('recommendations')->countAllResults();
+        $userNameQuery = "SELECT nom FROM users WHERE id = " . session()->get('id');
+        $userName = $db->query($userNameQuery)->getRow()->nom ?? 'Utilisateur';
 
-        $revenusQuery = "SELECT DATE_FORMAT(date_transaction, '%Y-%m') as mois, SUM(montant) as total FROM transactions GROUP BY mois ORDER BY mois ASC";
-        $revenusParMois = $db->query($revenusQuery)->getResultArray();
+        $userLastNameQuery = "SELECT prenom FROM users WHERE id = " . session()->get('id');
+        $userLastName = $db->query($userLastNameQuery)->getRow()->prenom ?? '';
 
-        $objectifsQuery = "SELECT o.nom, COUNT(uo.user_id) as total FROM objectifs o LEFT JOIN user_objectifs uo ON o.id = uo.objectif_id GROUP BY o.id";
-        $objectifsCount = $db->query($objectifsQuery)->getResultArray();
+        $userMailQuery = "SELECT email FROM users WHERE id = " . session()->get('id');
+        $userMail = $db->query($userMailQuery)->getRow()->email ?? '';
+
+        $userdateNaissanceQuery = "SELECT date_naissance FROM users WHERE id = " . session()->get('id');
+        $dateNaissance = $db->query($userdateNaissanceQuery)->getRow()->date_naissance ?? '';
+        $dateNaissance2 = new \DateTime($dateNaissance);
+        $currentDate = new \DateTime();
+        $userAge = $dateNaissance2->diff($currentDate)->y;
+
+        $userTailleQuery = "SELECT taille FROM user_health WHERE user_id = " . session()->get('id');
+        $userTaille = $db->query($userTailleQuery)->getRow()->taille ?? '';
+
+        $userPoidsQuery = "SELECT poids FROM user_health WHERE user_id = " . session()->get('id');
+        $userPoids = $db->query($userPoidsQuery)->getRow()->poids ?? 0;
+
+        // Éviter la division par zéro sur l'IMC si la taille n'est pas renseignée
+        $userTailleMeters = (float)$userTaille;
+        $userImc = ($userTailleMeters > 0) ? ($userPoids / ($userTailleMeters * $userTailleMeters)) : 0;
+
+        $getObjectifId = "SELECT objectif_id FROM user_objectifs WHERE user_id = " . session()->get('id');
+        $objectifRow = $db->query($getObjectifId)->getRow();
+        $objectifId = $objectifRow ? $objectifRow->objectif_id : 0; // Utiliser 0 si non trouvé
+
+        // Requete d'objectif sécurisée (ne plante pas si $objectifId est 0 ou vide)
+        $userObjectif = '';
+        if ($objectifId > 0) {
+            $userObjectifQuerry = "SELECT nom FROM objectifs WHERE id = " . $objectifId;
+            $userObjectif = $db->query($userObjectifQuerry)->getRow()->nom ?? '';
+        }
 
         $data = [
-            'nbUsers'         => $nbUsers,
-            'revenus'         => $revenus,
-            'nbRegimesVendus' => $nbRegimesVendus,
-            'revenusParMois'  => json_encode($revenusParMois), // json_encode pour l'utiliser en Javascript
-            'objectifsCount'  => json_encode($objectifsCount)
+            'userName'        => $userName,
+            'userLastName'    => $userLastName,
+            'userMail'         => $userMail,
+            'userAge'          => $userAge,
+            'userTaille'       => $userTaille,
+            'userPoids'        => $userPoids,
+            'userImc'       => round($userImc, 2),
+            'userObjectif' => $userObjectif,
+            'dateNaissance' => $dateNaissance
         ];
 
         return view('users/homepage', $data);
+    }
+
+    // -- Mise à jour du profil (Ages, infos, Poids, etc.)
+    public function updateProfile()
+    {
+        $db = \Config\Database::connect();
+        $userId = session()->get('id');
+
+        $nom = $this->request->getPost('nom');
+        $prenom = $this->request->getPost('prenom');
+        $taille = $this->request->getPost('taille');
+        $poids = $this->request->getPost('poids');
+        $date_naissance = $this->request->getPost('date_naissance');
+
+        // Met à jour la table users
+        $db->table('users')->where('id', $userId)->update([
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'date_naissance' => $date_naissance
+        ]);
+
+        // Vérifie si on doit insérer ou mettre à jour la santé
+        $healthCheck = $db->table('user_health')->where('user_id', $userId)->get();
+        if ($healthCheck->getNumRows() > 0) {
+            $db->table('user_health')->where('user_id', $userId)->update([
+                'taille' => $taille,
+                'poids' => $poids,
+                'date_mesure' => date('Y-m-d H:i:s')
+            ]);
+        } else {
+            $db->table('user_health')->insert([
+                'user_id' => $userId,
+                'taille' => $taille,
+                'poids' => $poids,
+                'date_mesure' => date('Y-m-d H:i:s')
+            ]);
+        }
+
+        // MAJ de la session si le nom change
+        session()->set('username', $nom . ' ' . $prenom);
+        
+        session()->setFlashdata('success', 'Votre profil a été mis à jour avec succès.');
+        return redirect()->to('users/homepage');
+    }
+
+    // -- Choix ou mise à jour de l'objectif
+    public function updateObjectif()
+    {
+        $db = \Config\Database::connect();
+        $userId = session()->get('id');
+        $objId = $this->request->getPost('objectif_id');
+
+        $check = $db->table('user_objectifs')->where('user_id', $userId)->get();
+        if ($check->getNumRows() > 0) {
+            $db->table('user_objectifs')->where('user_id', $userId)->update(['objectif_id' => $objId]);
+        } else {
+            $db->table('user_objectifs')->insert(['user_id' => $userId, 'objectif_id' => $objId]);
+        }
+
+        session()->setFlashdata('success', 'Votre objectif a été mis à jour.');
+        return redirect()->to('users/homepage');
     }
 }

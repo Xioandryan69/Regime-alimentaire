@@ -193,7 +193,7 @@ class UsersAuth extends BaseController
         $db = \Config\Database::connect();
         $db->table('user_health')->insert([
             'user_id'     => $userId,
-            'taille'      => $taille,
+            'taille'      => $tailleM,
             'poids'       => $poids,
             'imc'         => $imc,
             'date_mesure' => date('Y-m-d H:i:s'),

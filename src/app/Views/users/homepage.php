@@ -41,65 +41,168 @@
     <!-- Dashboard Content -->
     <section class="py-5">
         <div class="container">
-            <h1 class="mb-4 fw-bold">Tableau de bord</h1>
-            
-            <div class="row g-4 mb-5">
-                <!-- Chiffres clés -->
-                <div class="col-md-4">
-                    <div class="card shadow-sm border-0 bg-success text-white h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><i class="fas fa-users me-2"></i> Utilisateurs Inscrits</h5>
-                            <p class="card-text display-4 fw-bold"><?= $nbUsers ?></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="card shadow-sm border-0 bg-primary text-white h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><i class="fas fa-chart-line me-2"></i> Revenus Totaux</h5>
-                            <!-- Formatage du prix en Ariary (ou ta monnaie) -->
-                            <p class="card-text display-4 fw-bold"><?= number_format($revenus, 0, ',', ' ') ?> Ar</p> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card shadow-sm border-0 bg-info text-white h-100">
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><i class="fas fa-clipboard-list me-2"></i> Régimes Vendus</h5>
-                            <p class="card-text display-4 fw-bold"><?= $nbRegimesVendus ?></p>
-                        </div>
-                    </div>
+            <div class="row mb-4 align-items-center">
+                <div class="col">
+                    <h1 class="mb-1 fw-bold">Bonjour, <?= esc($userLastName) ?> <?= esc($userName) ?> 👋</h1>
+                    <p class="text-muted">Bienvenue sur votre espace personnel My Régime</p>
                 </div>
             </div>
             
-            <!-- Statistiques Graphiques -->
-            <div class="row g-4">
-                <div class="col-md-8">
+            <div class="row g-4 mb-5">
+                <!-- Complétion du profil -->
+                <div class="col-md-5">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="card-header bg-white py-3">
-                            <h5 class="mb-0 fw-bold"><i class="fas fa-money-bill-wave me-2"></i> Évolution des revenus</h5>
+                            <h5 class="mb-0 fw-bold"><i class="fas fa-user-edit me-2 text-success"></i> Mon Profil</h5>
                         </div>
                         <div class="card-body">
-                            <canvas id="revenusChart"></canvas>
+                            <ul class="list-group list-group-flush mt-2">
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                                    <span class="text-muted"><i class="fas fa-user me-2"></i> Nom complet</span>
+                                    <span class="fw-medium"><?= esc($userName) ?> <?= esc($userLastName) ?></span>
+                                </li>
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                                    <span class="text-muted"><i class="fas fa-envelope me-2"></i> Email</span>
+                                    <span class="fw-medium"><?= esc($userMail) ?></span>
+                                </li>
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                                    <span class="text-muted"><i class="fas fa-birthday-cake me-2"></i> Âge</span>
+                                    <span class="fw-medium"><?= esc($userAge) ?> ans</span>
+                                </li>
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                                    <span class="text-muted"><i class="fas fa-arrows-alt-v me-2"></i> Taille</span>
+                                    <span class="fw-medium"><?= esc($userTaille) ?> m</span>
+                                </li>
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                                    <span class="text-muted"><i class="fas fa-weight me-2"></i> Poids</span>
+                                    <span class="fw-medium"><?= esc($userPoids) ?> kg</span>
+                                </li>
+                                <li class="list-group-item px-0 d-flex justify-content-between align-items-center">
+                                    <span class="text-muted"><i class="fas fa-heartbeat me-2"></i> IMC</span>
+                                    <span class="fw-medium"><?= esc($userImc) ?></span>
+                                </li>
+                            </ul>
+                            <div class="mt-4 text-center">
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProfileModal"><i class="fas fa-edit me-1"></i>Modifier mes infos</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-md-4">
+                <!-- Choix des 3 objectifs -->
+                <div class="col-md-7">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="card-header bg-white py-3">
-                            <h5 class="mb-0 fw-bold"><i class="fas fa-bullseye me-2"></i> Répartition des objectifs</h5>
+                            <h5 class="mb-0 fw-bold"><i class="fas fa-bullseye me-2 text-warning"></i> Choisir mon objectif</h5>
                         </div>
                         <div class="card-body">
-                            <canvas id="objectifsChart"></canvas>
+                            <!-- Affiche l'objectif actuel s'il existe -->
+                            <?php if(!empty($userObjectif)): ?>
+                                <div class="alert alert-info mb-4">
+                                    <i class="fas fa-info-circle me-2"></i> Votre objectif actuel est : <strong><?= esc($userObjectif) ?></strong>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <p class="text-muted mb-4">Sélectionnez l'un des 3 objectifs ci-dessous pour adapter vos futurs programmes :</p>
+                            
+                            <div class="row g-3">
+                                <!-- ID 1 = Perte de poids -->
+                                <div class="col-12">
+                                    <form action="<?= base_url('users/updateObjectif') ?>" method="post">
+                                        <?= csrf_field() ?>
+                                        <input type="hidden" name="objectif_id" value="1">
+                                        <button type="submit" class="btn btn-outline-primary w-100 p-3 text-start d-flex align-items-center rounded-3">
+                                            <i class="fas fa-arrow-down fa-2x me-3" style="width: 40px;"></i>
+                                            <div>
+                                                <h6 class="fw-bold mb-0">Réduire son poids</h6>
+                                                <small>Perdre des kilos de manière saine</small>
+                                            </div>
+                                        </button>
+                                    </form>
+                                </div>
+                                <!-- ID 2 = Prise de poids -->
+                                <div class="col-12">
+                                    <form action="<?= base_url('users/updateObjectif') ?>" method="post">
+                                        <?= csrf_field() ?>
+                                        <input type="hidden" name="objectif_id" value="2">
+                                        <button type="submit" class="btn btn-outline-success w-100 p-3 text-start d-flex align-items-center rounded-3">
+                                            <i class="fas fa-arrow-up fa-2x me-3" style="width: 40px;"></i>
+                                            <div>
+                                                <h6 class="fw-bold mb-0">Augmenter son poids</h6>
+                                                <small>Gagner en masse musculaire et vitalité</small>
+                                            </div>
+                                        </button>
+                                    </form>
+                                </div>
+                                <!-- ID 3 = Maintien du poids -->
+                                <div class="col-12">
+                                    <form action="<?= base_url('users/updateObjectif') ?>" method="post">
+                                        <?= csrf_field() ?>
+                                        <input type="hidden" name="objectif_id" value="3">
+                                        <button type="submit" class="btn btn-outline-info w-100 p-3 text-start d-flex align-items-center rounded-3">
+                                            <i class="fas fa-balance-scale fa-2x me-3" style="width: 40px;"></i>
+                                            <div>
+                                                <h6 class="fw-bold mb-0">Atteindre / Maintenir son IMC idéal</h6>
+                                                <small>Trouver le poids parfait selon votre taille</small>
+                                            </div>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal pour éditer le profil -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="editProfileModalLabel"><i class="fas fa-edit me-2"></i> Modifier mon profil</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?= base_url('users/updateProfile') ?>" method="post">
+                    <?= csrf_field() ?>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="nom" value="<?= esc($userName) ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="prenom" class="form-label">Prénom</label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" value="<?= esc($userLastName) ?>" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="taille" class="form-label">Taille (en mètres)</label>
+                                <!-- step="0.01" permet de mettre des valeurs comme 1.75 -->
+                                <input type="number" step="0.01" class="form-control" id="taille" name="taille" value="<?= esc($userTaille) ?>" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="poids" class="form-label">Poids (en kg)</label>
+                                <input type="number" step="0.1" class="form-control" id="poids" name="poids" value="<?= esc($userPoids) ?>" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="date_naissance" class="form-label">Date de naissance</label>
+                                <input type="date"
+                                name="date_naissance" id="date_naissance"
+                                value="<?= $dateNaissance ?>" 
+                                max="<?= date('Y-m-d', strtotime('-15 years')) ?>"
+                                required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-success">Enregistrer les modifications</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-5">
