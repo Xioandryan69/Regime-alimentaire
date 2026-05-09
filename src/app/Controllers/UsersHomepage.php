@@ -29,15 +29,12 @@ class UsersHomepage extends BaseController
         $userPoidsQuery = "SELECT poids FROM user_health WHERE user_id = " . session()->get('id');
         $userPoids = $db->query($userPoidsQuery)->getRow()->poids ?? 0;
 
-        // Éviter la division par zéro sur l'IMC si la taille n'est pas renseignée
         $userTailleMeters = (float)$userTaille;
         $userImc = ($userTailleMeters > 0) ? ($userPoids / ($userTailleMeters * $userTailleMeters)) : 0;
 
         $getObjectifId = "SELECT objectif_id FROM user_objectifs WHERE user_id = " . session()->get('id');
         $objectifRow = $db->query($getObjectifId)->getRow();
-        $objectifId = $objectifRow ? $objectifRow->objectif_id : 0; // Utiliser 0 si non trouvé
-
-        // Requete d'objectif sécurisée (ne plante pas si $objectifId est 0 ou vide)
+        $objectifId = $objectifRow ? $objectifRow->objectif_id : 0; 
         $userObjectif = '';
         if ($objectifId > 0) {
             $userObjectifQuerry = "SELECT nom FROM objectifs WHERE id = " . $objectifId;

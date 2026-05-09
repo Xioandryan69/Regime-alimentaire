@@ -18,6 +18,7 @@ $routes->post('admin/loginCheck','AdminAuth::loginCheck');
 $routes->get('admin/logout',     'AdminAuth::logout');
 $routes->get('admin/dashboard',  'AdminDashboard::index', ['filter' => 'adminAuth']);
 $routes->get('admin/listUsers',  'AdminListUsers::listUsers', ['filter' => 'adminAuth']);
+$routes->get('admin/profilUser/(:num)', 'AdminListUsers::affProfil/$1', ['filter' => 'adminAuth']);
 
 // --- Routes Users : connexion ---
 $routes->get('users/login',       'UsersAuth::login');
