@@ -2675,3 +2675,108 @@ DEBUG - 2026-05-09 15:36:57 --> Session: Class initialized using 'CodeIgniter\Se
 DEBUG - 2026-05-09 15:36:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-05-09 17:18:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 DEBUG - 2026-05-09 17:18:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 17:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 17:24:28 --> CSRF token verified.
+DEBUG - 2026-05-09 17:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 17:24:28 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/app/Controllers/UsersAuth.php(29): CodeIgniter\BaseModel->first()
+#7 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+#8 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/app/Controllers/UsersAuth.php(29): CodeIgniter\BaseModel->first()
+#6 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+#7 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 17:24:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: users/loginCheck]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UsersAuth.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+DEBUG - 2026-05-09 17:24:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 17:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 17:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-05-09 17:24:48 --> CSRF token verified.
+DEBUG - 2026-05-09 17:24:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-05-09 17:24:48 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' in /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/MySQLi/Connection.php(201): mysqli->real_connect()
+#1 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#4 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/app/Controllers/UsersAuth.php(29): CodeIgniter\BaseModel->first()
+#7 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+#8 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#12 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' in /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+#3 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/app/Controllers/UsersAuth.php(29): CodeIgniter\BaseModel->first()
+#6 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+#7 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+#11 /home/andrianandrainy/Documents/S4/Mr Rojo/Regime-alimentaire/src/public/index.php(59): CodeIgniter\Boot::bootWeb()
+#12 {main}
+CRITICAL - 2026-05-09 17:24:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost'
+[Method: POST, Route: users/loginCheck]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(295): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UsersAuth.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\UsersAuth->loginCheck()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+INFO - 2026-05-09 17:27:23 --> CSRF token verified.
+DEBUG - 2026-05-09 17:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-05-09 17:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
