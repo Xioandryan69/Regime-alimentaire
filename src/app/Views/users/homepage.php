@@ -50,7 +50,7 @@
             
             <div class="row g-4 mb-5">
                 <!-- Complétion du profil -->
-                <div class="col-md-5">
+                <div class="col-lg-4 col-md-6">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="card-header bg-white py-3">
                             <h5 class="mb-0 fw-bold"><i class="fas fa-user-edit me-2 text-success"></i> Mon Profil</h5>
@@ -90,7 +90,7 @@
                 </div>
                 
                 <!-- Choix des 3 objectifs -->
-                <div class="col-md-7">
+                <div class="col-lg-4 col-md-6">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="card-header bg-white py-3">
                             <h5 class="mb-0 fw-bold"><i class="fas fa-bullseye me-2 text-warning"></i> Choisir mon objectif</h5>
@@ -152,6 +152,41 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Section Activités et Régimes -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white py-3">
+                            <h5 class="mb-0 fw-bold"><i class="fas fa-running me-2 text-primary"></i> Mes Programmes</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted mb-4">Vos régimes et activités actuels :</p>
+                            <?php if(!empty($userProgrammes)): ?>
+                                <div class="list-group list-group-flush">
+                                    <?php foreach($userProgrammes as $prog): ?>
+                                    <div class="list-group-item px-0">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-1 fw-bold text-success"><i class="fas fa-utensils me-1"></i> <?= esc($prog['regime_nom'] ?? 'Aucun régime') ?></h6>
+                                        </div>
+                                        <p class="mb-1 fw-medium text-primary"><i class="fas fa-dumbbell me-1"></i> <?= esc($prog['activite_nom'] ?? 'Aucune activité') ?></p>
+                                        <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> Du <?= date('d/m/Y', strtotime($prog['date_debut'])) ?> au <?= date('d/m/Y', strtotime($prog['date_fin'])) ?></small>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php else: ?>
+                                <div class="alert alert-secondary text-center">
+                                    <i class="fas fa-info-circle mb-2 fa-2x text-muted"></i>
+                                    <p class="mb-0">Aucun programme en cours. Choisissez un objectif pour recevoir des recommandations.</p>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <div class="mt-4 text-center">
+                                <a href="<?= base_url('users/recommendations') ?>" class="btn btn-outline-primary w-100"><i class="fas fa-search me-1"></i> Obtenir de nouveaux programmes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
