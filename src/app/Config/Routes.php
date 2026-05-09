@@ -17,6 +17,16 @@ $routes->get('admin/login',      'AdminAuth::login');
 $routes->post('admin/loginCheck','AdminAuth::loginCheck');
 $routes->get('admin/logout',     'AdminAuth::logout');
 $routes->get('admin/dashboard',  'AdminDashboard::index', ['filter' => 'adminAuth']);
+
+// CRUD Régimes (Administration protégée par le filtre adminAuth)
+$routes->group('admin/regimes', ['filter' => 'adminAuth'], function($routes) {
+    $routes->get('/', 'AdminRegimes::index');             // Liste
+    $routes->get('create', 'AdminRegimes::create');       // Formulaire création
+    $routes->post('store', 'AdminRegimes::store');        // Traitement création
+    $routes->get('edit/(:num)', 'AdminRegimes::edit/$1'); // Formulaire édition
+    $routes->post('update/(:num)', 'AdminRegimes::update/$1'); // Traitement édition
+    $routes->get('delete/(:num)', 'AdminRegimes::delete/$1'); // Traitement suppression
+});
 $routes->get('admin/listUsers',  'AdminListUsers::listUsers', ['filter' => 'adminAuth']);
 $routes->get('admin/profilUser/(:num)', 'AdminListUsers::affProfil/$1', ['filter' => 'adminAuth']);
 
