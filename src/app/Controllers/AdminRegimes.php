@@ -35,6 +35,9 @@ class AdminRegimes extends BaseController
             'calories'       => $this->request->getPost('calories'),
             'prix'           => $this->request->getPost('prix'),
             'duree_jours'    => $this->request->getPost('duree_jours'),
+            'pourcentage_viande'   => $this->request->getPost('pourcentage_viande'),
+            'pourcentage_poisson'  => $this->request->getPost('pourcentage_poisson'),
+            'pourcentage_volaille' => $this->request->getPost('pourcentage_volaille'),
             'regime_user_id' => 1 // Valeur par défaut pour l'exemple (lié à ton architecture de Base de données)
         ]);
 
@@ -62,7 +65,10 @@ class AdminRegimes extends BaseController
             'description'    => $this->request->getPost('description'),
             'calories'       => $this->request->getPost('calories'),
             'prix'           => $this->request->getPost('prix'),
-            'duree_jours'    => $this->request->getPost('duree_jours')
+            'duree_jours'    => $this->request->getPost('duree_jours'),
+            'pourcentage_viande'   => $this->request->getPost('pourcentage_viande'),
+            'pourcentage_poisson'  => $this->request->getPost('pourcentage_poisson'),
+            'pourcentage_volaille' => $this->request->getPost('pourcentage_volaille')
         ]);
 
         session()->setFlashdata('success', 'Régime mis à jour.');

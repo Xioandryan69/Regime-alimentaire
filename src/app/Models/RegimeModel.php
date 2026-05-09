@@ -16,6 +16,9 @@ class RegimeModel extends Model
         'regime_user_id', 
         'calories', 
         'prix', 
-        'duree_jours'
+        'duree_jours',
+        'pourcentage_viande',
+        'pourcentage_poisson',
+        'pourcentage_volaille'
     ];
 }

@@ -50,8 +50,24 @@
                                         <input type="number" step="0.01" class="form-control" id="prix" name="prix" required>
                                     </div>
                                 </div>
+                                
+                                <h6 class="fw-bold mt-4 mb-3 border-bottom pb-2">Composition du régime (%)</h6>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label for="pourcentage_viande" class="form-label text-danger fw-medium"><i class="fas fa-drumstick-bite me-1"></i> Viande (%)</label>
+                                        <input type="number" min="0" max="100" class="form-control" id="pourcentage_viande" name="pourcentage_viande" value="0" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="pourcentage_poisson" class="form-label text-info fw-medium"><i class="fas fa-fish me-1"></i> Poisson (%)</label>
+                                        <input type="number" min="0" max="100" class="form-control" id="pourcentage_poisson" name="pourcentage_poisson" value="0" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="pourcentage_volaille" class="form-label text-warning fw-medium"><i class="fas fa-egg me-1"></i> Volaille (%)</label>
+                                        <input type="number" min="0" max="100" class="form-control" id="pourcentage_volaille" name="pourcentage_volaille" value="0" required>
+                                    </div>
+                                </div>
 
-                                <div class="d-flex justify-content-between mt-4">
+                                <div class="d-flex justify-content-between mt-4 border-top pt-3">
                                     <a href="<?= base_url('admin/regimes') ?>" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i> Annuler</a>
                                     <button type="submit" class="btn btn-success"><i class="fas fa-save me-1"></i> Créer le régime</button>
                                 </div>

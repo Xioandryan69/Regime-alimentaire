@@ -35,6 +35,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nom</th>
+                                    <th>Composition</th>
                                     <th>Calories (jour)</th>
                                     <th>Durée</th>
                                     <th>Prix</th>
@@ -46,6 +47,13 @@
                                 <tr>
                                     <td><?= esc($regime['id']) ?></td>
                                     <td class="fw-bold text-primary"><?= esc($regime['nom']) ?></td>
+                                    <td>
+                                        <div class="small">
+                                            <span class="text-danger" title="Viande"><i class="fas fa-drumstick-bite"></i> <?= esc($regime['pourcentage_viande']) ?>%</span> |
+                                            <span class="text-info" title="Poisson"><i class="fas fa-fish"></i> <?= esc($regime['pourcentage_poisson']) ?>%</span> |
+                                            <span class="text-warning" title="Volaille"><i class="fas fa-egg"></i> <?= esc($regime['pourcentage_volaille']) ?>%</span>
+                                        </div>
+                                    </td>
                                     <td><?= esc($regime['calories']) ?> kcal</td>
                                     <td><?= esc($regime['duree_jours']) ?> jours</td>
                                     <td><span class="badge bg-success"><?= number_format($regime['prix'], 0, ',', ' ') ?> Ar</span></td>

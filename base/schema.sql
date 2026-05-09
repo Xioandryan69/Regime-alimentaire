@@ -79,6 +79,9 @@ CREATE TABLE regimes (
     calories INT,
     prix DECIMAL(10, 2),
     duree_jours INT,
+    pourcentage_viande INT DEFAULT 0,
+    pourcentage_poisson INT DEFAULT 0,
+    pourcentage_volaille INT DEFAULT 0,
     CONSTRAINT id_regime_user FOREIGN KEY (regime_user_id) REFERENCES regime_user(id)
 );
 
