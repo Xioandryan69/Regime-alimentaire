@@ -15,4 +15,16 @@ class CodeModel extends Model
         'valeur',
         'utilise'
     ];
+
+    public function trouverValide(string $code): ?array
+    {
+        return $this->where('code', trim($code))
+            ->where('utilise', 0)
+            ->first();
+    }
+
+    public function marquerUtilise(int $codeId): bool
+    {
+        return (bool) $this->update($codeId, ['utilise' => 1]);
+    }
 }
