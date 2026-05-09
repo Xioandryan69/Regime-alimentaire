@@ -23,6 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= base_url('admin/dashboard') ?>"><i class="fas fa-home me-1"></i> Tableau de bord</a>
                     </li>
+                    <li>
+                        <a class="nav-link active" href="<?= base_url('admin/listUsers') ?>"><i class="fas fa-home me-1"></i> liste des utilisateurs</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
