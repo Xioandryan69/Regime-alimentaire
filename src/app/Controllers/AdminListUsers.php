@@ -48,6 +48,16 @@ Class AdminListUsers extends BaseController
             $userObjectif = $db->query($userObjectifQuerry)->getRow()->nom ?? '';
         }
 
+        // Récupération des régimes et activités (recommandations suivies) pour l'admin
+        $userActivitesRegimesQuery = "
+            SELECT r.nom as regime_nom, a.nom as activite_nom, rec.date_debut, rec.date_fin 
+            FROM recommendations rec
+            LEFT JOIN regimes r ON rec.regime_id = r.id
+            LEFT JOIN activites a ON rec.activite_id = a.id
+            WHERE rec.user_id = " . $id . "
+            ORDER BY rec.date_debut DESC";
+        $userProgrammes = $db->query($userActivitesRegimesQuery)->getResultArray();
+
         $dataU = [
             'userName'        => $userName,
             'userLastName'    => $userLastName,
@@ -57,6 +67,7 @@ Class AdminListUsers extends BaseController
             'userPoids'        => $userPoids,
             'userImc'       => round($userImc, 2),
             'userObjectif' => $userObjectif,
+            'userProgrammes' => $userProgrammes,
             'dateNaissance' => $dateNaissance
         ];
         return view('admin/profilUser', $dataU);

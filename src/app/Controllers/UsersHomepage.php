@@ -41,6 +41,16 @@ class UsersHomepage extends BaseController
             $userObjectif = $db->query($userObjectifQuerry)->getRow()->nom ?? '';
         }
 
+        // Récupération des régimes et activités (recommandations suivies)
+        $userActivitesRegimesQuery = "
+            SELECT r.nom as regime_nom, a.nom as activite_nom, rec.date_debut, rec.date_fin 
+            FROM recommendations rec
+            LEFT JOIN regimes r ON rec.regime_id = r.id
+            LEFT JOIN activites a ON rec.activite_id = a.id
+            WHERE rec.user_id = " . session()->get('id') . "
+            ORDER BY rec.date_debut DESC";
+        $userProgrammes = $db->query($userActivitesRegimesQuery)->getResultArray();
+
         $data = [
             'userName'        => $userName,
             'userLastName'    => $userLastName,
@@ -50,6 +60,7 @@ class UsersHomepage extends BaseController
             'userPoids'        => $userPoids,
             'userImc'       => round($userImc, 2),
             'userObjectif' => $userObjectif,
+            'userProgrammes' => $userProgrammes,
             'dateNaissance' => $dateNaissance
         ];
 
