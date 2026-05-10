@@ -196,4 +196,73 @@ class UsersHomepage extends BaseController
             'activitiesTable' => $activitiesTable,
         ]);
     }
+
+    public function exportPdf()
+    {
+        // 1. Inclure FPDF (chemin depuis public/index.php normalement, ou via ROOTPATH)
+        require_once ROOTPATH . 'fpdf186/fpdf.php';
+
+        $userId = (int) session()->get('id');
+        $db = \Config\Database::connect();
+        
+        $userName = session()->get('username') ?? 'Utilisateur';
+
+        // Utilisation du modèle fait par les développeurs pour récupérer les recommandations
+        $recommendationModel = new \App\Models\RecommendationModel();
+        
+        // Soit vous exportez les suggestions (preview), soit les sauvegardées :
+        // Ici on prend celles qui sont sauvegardées/activées.
+        $savedRecommendations = $recommendationModel->getAvecDetails($userId);
+
+        // 2. Création du PDF
+        $pdf = new \FPDF();
+        $pdf->AddPage();
+        
+        // Titre
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(0, 10, utf8_decode('My Régime - Vos Suggestions & Programmes'), 0, 1, 'C');
+        $pdf->Ln(10);
+
+        // Informations utilisateur
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->Cell(40, 10, 'Client : ', 0, 0);
+        $pdf->SetFont('Arial', '', 12);
+        $pdf->Cell(0, 10, utf8_decode($userName), 0, 1);
+        $pdf->Ln(10);
+
+        // Programmes
+        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Cell(0, 10, utf8_decode('Vos Recommandations Enregistrées'), 0, 1);
+        $pdf->Ln(5);
+
+        if (empty($savedRecommendations)) {
+            $pdf->SetFont('Arial', 'I', 12);
+            $pdf->Cell(0, 10, utf8_decode('Aucune recommandation enregistrée en cours.'), 0, 1);
+        } else {
+            // En-têtes du tableau
+            $pdf->SetFont('Arial', 'B', 10);
+            $pdf->Cell(60, 10, utf8_decode('Régime'), 1, 0, 'C');
+            $pdf->Cell(60, 10, utf8_decode('Activité'), 1, 0, 'C');
+            $pdf->Cell(35, 10, utf8_decode('Date Début'), 1, 0, 'C');
+            $pdf->Cell(35, 10, utf8_decode('Date Fin'), 1, 1, 'C');
+
+            $pdf->SetFont('Arial', '', 10);
+            foreach ($savedRecommendations as $prog) {
+                $regime = mb_substr(utf8_decode($prog['regime_nom'] ?? 'Aucun régime'), 0, 30);
+                $activite = mb_substr(utf8_decode($prog['activite_nom'] ?? 'Aucune activité'), 0, 30);
+                $debut = date('d/m/Y', strtotime($prog['date_debut']));
+                $fin = date('d/m/Y', strtotime($prog['date_fin']));
+
+                $pdf->Cell(60, 10, $regime, 1, 0);
+                $pdf->Cell(60, 10, $activite, 1, 0);
+                $pdf->Cell(35, 10, $debut, 1, 0, 'C');
+                $pdf->Cell(35, 10, $fin, 1, 1, 'C');
+            }
+        }
+
+        // Forcer le téléchargement du PDF
+        $this->response->setHeader('Content-Type', 'application/pdf');
+        $pdf->Output('D', 'Mes_Recommandations_MyRegime.pdf');
+        exit;
+    }
 }

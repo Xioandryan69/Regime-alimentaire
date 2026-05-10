@@ -57,6 +57,7 @@ $routes->get('users/homepage', 'UsersHomepage::index', ['filter' => 'usersAuth']
 $routes->get('users/imc', 'UsersHomepage::imc', ['filter' => 'usersAuth']);
 $routes->get('users/recommendations', 'UsersHomepage::recommendations', ['filter' => 'usersAuth']);
 $routes->get('users/activities/recommended', 'UsersHomepage::recommendedActivities', ['filter' => 'usersAuth']);
+$routes->get('users/recommendations/exportPdf', 'UsersHomepage::exportPdf', ['filter' => 'usersAuth']);
 $routes->post('users/recommendations/generate', 'UsersHomepage::generateRecommendations', ['filter' => 'usersAuth']);
 $routes->post('users/updateProfile', 'UsersHomepage::updateProfile', ['filter' => 'usersAuth']);
 $routes->post('users/updateObjectif', 'UsersHomepage::updateObjectif', ['filter' => 'usersAuth']);
