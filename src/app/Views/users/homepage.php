@@ -138,6 +138,30 @@
                     </div>
                 </div>
                 
+                <div class="col-lg-4 col-md-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white py-3">
+                            <h5 class="mb-0 fw-bold"><i class="fas fa-star me-2 text-warning"></i> Abonnement</h5>
+                        </div>
+                        <div class="card-body">
+                            <?php if(!empty($userAbonnement)): ?>
+                                <h5 class="fw-bold mb-3"><?= esc($userAbonnement['nom']) ?></h5>
+                                <p class="text-muted mb-3"><?= esc($userAbonnement['description'] ?: 'Votre abonnement actuel donne accès aux remises et aux avantages associés.') ?></p>
+                                <div class="mb-3">
+                                    <span class="badge bg-success me-2">Remise <?= esc($userAbonnement['remise']) ?>%</span>
+                                    <span class="badge bg-primary"><?= number_format($userAbonnement['prix'], 2, ',', ' ') ?> Ar</span>
+                                </div>
+                                <?php if(!empty($userAbonnement['duree_jours'])): ?>
+                                    <p class="text-muted mb-0">Durée : <?= esc($userAbonnement['duree_jours']) ?> jours</p>
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <p class="text-muted mb-3">Aucun abonnement actif pour le moment.</p>
+                                <p class="mb-0">Passez en <strong>Gold</strong> pour bénéficier de 15% de remise sur tous les régimes.</p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Choix des 3 objectifs -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card shadow-sm border-0 h-100">
@@ -235,6 +259,48 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Offre GOLD -->
+                <?php if(empty($userAbonnement) || !isset($userAbonnement['type']) || $userAbonnement['type'] !== 'GOLD'): ?>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card shadow-lg border-0 h-100 position-relative" style="background: linear-gradient(135deg, #f9d56e 0%, #f4c430 100%);">
+                        <div class="position-absolute top-0 end-0 p-3">
+                            <span class="badge bg-danger">NOUVEAU</span>
+                        </div>
+                        <div class="card-body text-center py-4">
+                            <h1 class="fw-bold mb-2" style="font-size: 3rem;">👑</h1>
+                            <h3 class="fw-bold mb-1" style="color: #333;">GOLD</h3>
+                            <p class="text-dark fw-medium mb-3">Abonnement Premium</p>
+                            
+                            <div class="card bg-white shadow-sm mb-4 border-0">
+                                <div class="card-body">
+                                    <p class="mb-2"><span class="badge bg-success fs-6">15%</span> de remise</p>
+                                    <p class="mb-0 text-dark fw-bold fs-5">sur tous les régimes</p>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <p class="text-dark mb-1"><strong>Valide pour 1 an</strong></p>
+                                <p class="text-dark mb-0 fs-6">365 jours d'accès premium</p>
+                            </div>
+
+                            <div class="alert alert-light border border-dark mb-4" style="color: #333;">
+                                <h4 class="fw-bold mb-2">Prix: <?= !empty($goldPrice) ? number_format($goldPrice, 2, ',', ' ') . ' Ar' : '15000 Ar' ?></h4>
+                                <p class="mb-0 small">Un investissement pour votre santé</p>
+                            </div>
+
+                            <form action="<?= base_url('users/buyGold') ?>" method="post">
+                                <?= csrf_field() ?>
+                                <button type="submit" class="btn btn-dark w-100 fw-bold py-2">
+                                    <i class="fas fa-shopping-cart me-2"></i> Acheter maintenant
+                                </button>
+                            </form>
+                            
+                            <p class="mt-3 text-dark small mb-0">✨ Les remises s'appliquent automatiquement</p>
+                        </div>
+                    </div>
+                </div>
+                <?php endif; ?>
 
             </div>
         </div>

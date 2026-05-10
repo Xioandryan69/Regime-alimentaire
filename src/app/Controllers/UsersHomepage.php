@@ -4,16 +4,22 @@ namespace App\Controllers;
 
 use App\Models\CodeModel;
 use App\Models\WalletModel;
+use App\Models\AbonnementModel;
+use App\Models\AbonnementParamModel;
 
 class UsersHomepage extends BaseController
 {
     protected CodeModel $codeModel;
     protected WalletModel $walletModel;
+    protected AbonnementModel $abonnementModel;
+    protected AbonnementParamModel $abonnementParamModel;
 
     public function __construct()
     {
         $this->codeModel = new CodeModel();
         $this->walletModel = new WalletModel();
+        $this->abonnementModel = new AbonnementModel();
+        $this->abonnementParamModel = new AbonnementParamModel();
     }
 
     public function index()
@@ -64,6 +70,38 @@ class UsersHomepage extends BaseController
         $userProgrammes = $db->query($userActivitesRegimesQuery)->getResultArray();
 
         $wallet = $this->walletModel->getOuCreerParUser(session()->get('id'));
+        $userAbonnement = $this->abonnementModel->getActifParUser(session()->get('id'));
+        $abonnementInfo = null;
+        $goldPrice = 15000.00;  // Prix par défaut
+
+        if ($userAbonnement) {
+            $plan = null;
+            if ($this->abonnementParamModel->db->tableExists($this->abonnementParamModel->table)) {
+                $plan = $this->abonnementParamModel->where('code', $userAbonnement['type'])->first();
+            }
+
+            if ($plan) {
+                $abonnementInfo = $plan;
+            } else {
+                $abonnementInfo = [
+                    'code' => $userAbonnement['type'],
+                    'nom' => $userAbonnement['type'],
+                    'description' => '',
+                    'prix' => 0.00,
+                    'remise' => $userAbonnement['type'] === 'GOLD' ? 15.00 : 0.00,
+                    'duree_jours' => $userAbonnement['type'] === 'GOLD' ? 365 : null,
+                    'actif' => 1,
+                ];
+            }
+        }
+
+        // Charger le prix du plan GOLD
+        if ($this->abonnementParamModel->db->tableExists($this->abonnementParamModel->table)) {
+            $goldPlan = $this->abonnementParamModel->where('code', 'GOLD')->first();
+            if ($goldPlan) {
+                $goldPrice = (float) $goldPlan['prix'];
+            }
+        }
 
         $data = [
             'userName'        => $userName,
@@ -77,6 +115,8 @@ class UsersHomepage extends BaseController
             'userProgrammes' => $userProgrammes,
             'dateNaissance' => $dateNaissance,
             'userWalletSolde' => number_format((float)$wallet['solde'], 2, ',', ' '),
+            'userAbonnement' => $abonnementInfo,
+            'goldPrice' => $goldPrice,
         ];
 
         return view('users/homepage', $data);
@@ -177,6 +217,71 @@ class UsersHomepage extends BaseController
         }
 
         session()->setFlashdata('success', 'Votre objectif a été mis à jour.');
+        return redirect()->to('users/homepage');
+    }
+
+    // -- Acheter l'abonnement GOLD
+    public function buyGold()
+    {
+        $userId = session()->get('id');
+        $db = \Config\Database::connect();
+
+        // Vérifier le solde wallet
+        $wallet = $this->walletModel->getOuCreerParUser($userId);
+
+        // Récupérer le prix de GOLD
+        $goldPlan = null;
+        if ($this->abonnementParamModel->db->tableExists($this->abonnementParamModel->table)) {
+            $goldPlan = $this->abonnementParamModel->where('code', 'GOLD')->first();
+        }
+
+        if (!$goldPlan || empty($goldPlan['prix'])) {
+            session()->setFlashdata('error', 'Plan GOLD non configuré. Contactez l\'administrateur.');
+            return redirect()->to('users/homepage');
+        }
+
+        $prix = (float) $goldPlan['prix'];
+        $solde = (float) $wallet['solde'];
+
+        if ($solde < $prix) {
+            $deficit = $prix - $solde;
+            session()->setFlashdata('error', 'Solde insuffisant. Il manque ' . number_format($deficit, 2, ',', ' ') . ' Ar.');
+            return redirect()->to('users/homepage');
+        }
+
+        // Débiter le wallet
+        $this->walletModel->debiter($userId, $prix);
+
+        // Assigner GOLD subscription
+        $dateDebut = date('Y-m-d');
+        $dateFin = date('Y-m-d', strtotime('+365 days'));
+
+        $existing = $this->abonnementModel->getActifParUser($userId);
+
+        if ($existing) {
+            $this->abonnementModel->update($existing['id'], [
+                'type' => 'GOLD',
+                'date_debut' => $dateDebut,
+                'date_fin' => $dateFin,
+            ]);
+        } else {
+            $this->abonnementModel->insert([
+                'user_id' => $userId,
+                'type' => 'GOLD',
+                'date_debut' => $dateDebut,
+                'date_fin' => $dateFin,
+            ]);
+        }
+
+        // Enregistrer une transaction
+        $db->table('transactions')->insert([
+            'user_id' => $userId,
+            'code_id' => null,
+            'montant' => -$prix,
+            'date_transaction' => date('Y-m-d H:i:s'),
+        ]);
+
+        session()->setFlashdata('success', 'Bienvenue en GOLD ! 👑 Vous bénéficiez désormais de 15% de remise sur tous les régimes pendant 1 an.');
         return redirect()->to('users/homepage');
     }
 }

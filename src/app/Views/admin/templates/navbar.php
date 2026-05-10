@@ -16,6 +16,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('admin/regimes') ?>"><i class="fas fa-utensils me-1"></i> Régimes</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="abonnementsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-crown me-1"></i> Abonnements
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="abonnementsDropdown">
+                        <li><a class="dropdown-item" href="<?= base_url('admin/abonnements') ?>"><i class="fas fa-cog me-2"></i> Paramètres</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url('admin/subscriptions') ?>"><i class="fas fa-user-check me-2"></i> Assigner aux utilisateurs</a></li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('admin/activites') ?>"><i class="fas fa-utensils me-1"></i> Activités </a>
                 </li>

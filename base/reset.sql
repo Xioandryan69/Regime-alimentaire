@@ -54,6 +54,7 @@ ALTER TABLE wallet AUTO_INCREMENT = 1;
 ALTER TABLE codes AUTO_INCREMENT = 1;
 ALTER TABLE transactions AUTO_INCREMENT = 1;
 ALTER TABLE abonnements AUTO_INCREMENT = 1;
+ALTER TABLE abonnement_params AUTO_INCREMENT = 1;
 ALTER TABLE imc_categories AUTO_INCREMENT = 1;
 
 -- =========================

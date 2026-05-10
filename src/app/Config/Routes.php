@@ -29,6 +29,22 @@ $routes->group('admin/regimes', ['filter' => 'adminAuth'], function($routes) {
     $routes->get('delete/(:num)', 'AdminRegimes::delete/$1'); // Traitement suppression
 });
 
+$routes->group('admin/abonnements', ['filter' => 'adminAuth'], function($routes) {
+    $routes->get('/', 'AdminAbonnementParams::index');
+    $routes->get('create', 'AdminAbonnementParams::create');
+    $routes->post('store', 'AdminAbonnementParams::store');
+    $routes->get('edit/(:num)', 'AdminAbonnementParams::edit/$1');
+    $routes->post('update/(:num)', 'AdminAbonnementParams::update/$1');
+    $routes->get('delete/(:num)', 'AdminAbonnementParams::delete/$1');
+});
+
+$routes->group('admin/subscriptions', ['filter' => 'adminAuth'], function($routes) {
+    $routes->get('/', 'AdminAbonnements::index');
+    $routes->get('assign/(:num)', 'AdminAbonnements::assign/$1');
+    $routes->post('save/(:num)', 'AdminAbonnements::save/$1');
+    $routes->get('delete/(:num)', 'AdminAbonnements::delete/$1');
+});
+
 $routes->group('admin/activites', ['filter' => 'adminAuth'], function($routes) {
     $routes->get('/', 'Adminactivites::index');             // Liste
     $routes->get('create', 'Adminactivites::create');       // Formulaire création
@@ -57,3 +73,4 @@ $routes->get('users/homepage', 'UsersHomepage::index', ['filter' => 'usersAuth']
 $routes->post('users/updateProfile', 'UsersHomepage::updateProfile', ['filter' => 'usersAuth']);
 $routes->post('users/updateObjectif', 'UsersHomepage::updateObjectif', ['filter' => 'usersAuth']);
 $routes->post('users/redeemCode', 'UsersHomepage::redeemCode', ['filter' => 'usersAuth']);
+$routes->post('users/buyGold', 'UsersHomepage::buyGold', ['filter' => 'usersAuth']);

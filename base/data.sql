@@ -169,4 +169,9 @@ INSERT INTO abonnements (user_id, type, date_debut, date_fin) VALUES
 (4, 'FREE', '2026-05-02', NULL),
 (5, 'FREE', '2026-05-03', NULL),
 (6, 'FREE', '2026-05-04', NULL);
+
+-- abonnement_params
+INSERT INTO abonnement_params (code, nom, description, prix, remise, duree_jours, actif) VALUES
+('FREE', 'Abonnement Free', 'Accès gratuit sans remise sur les régimes.', 0.00, 0.00, NULL, 1),
+('GOLD', 'Abonnement Gold', 'Paiement unique pour accès Gold avec 15% de remise sur tous les régimes.', 15000.00, 15.00, 365, 1);
  
