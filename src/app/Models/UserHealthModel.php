@@ -5,20 +5,17 @@ use CodeIgniter\Model;
 
 class UserHealthModel extends Model
 {
-    protected $table ='user_health';
-    protected $allowedFields=
-    [
-        'user_id','taille','poids','imc','date_mesure'
+    protected $table = 'user_health';
+    protected $allowedFields = [
+        'user_id', 'taille', 'poids', 'imc', 'imc_calcule', 'date_mesure'
     ];
-    protected $returnType='array';
+    protected $returnType = 'array';
 
     /**
      * Calcule l'IMC : poids (kg) / taille² (m)
      */
     public function calculerIMC(float $poids, float $taille_m): float
     {
-        //$taille_m = $taille_cm / 100;
-        
         return round($poids / ($taille_m ** 2), 2);
     }
 
@@ -29,13 +26,13 @@ class UserHealthModel extends Model
     {
         if ($imc < 18.5) {
             return [
-                'label'   => 'Insuffisance pondérale',
+                'label'   => 'Insuffisance',
                 'couleur' => 'info',
                 'conseil' => 'Vous êtes en dessous du poids normal. Pensez à augmenter votre apport calorique.'
             ];
         } elseif ($imc < 25) {
             return [
-                'label'   => 'Poids normal',
+                'label'   => 'Normal',
                 'couleur' => 'success',
                 'conseil' => 'Votre IMC est dans la plage normale. Continuez ainsi !'
             ];
@@ -72,7 +69,12 @@ class UserHealthModel extends Model
  
         // Recalculer l'IMC si taille/poids sont fournis
         if (!empty($data['poids']) && !empty($data['taille'])) {
-            $data['imc'] = $this->calculerIMC((float)$data['poids'], (float)$data['taille']);
+            $imc = $this->calculerIMC((float) $data['poids'], (float) $data['taille']);
+            $data['imc'] = $imc;
+
+            if ($this->db->fieldExists('imc_calcule', $this->table)) {
+                $data['imc_calcule'] = $imc;
+            }
         }
  
         if ($existant) {

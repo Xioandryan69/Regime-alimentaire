@@ -54,5 +54,16 @@ $routes->post('users/register/step2',  'UsersAuth::registerStep2Check'); // Trai
 
 // --- Page d'accueil connectée ---
 $routes->get('users/homepage', 'UsersHomepage::index', ['filter' => 'usersAuth']);
+$routes->get('users/imc', 'UsersHomepage::imc', ['filter' => 'usersAuth']);
+$routes->get('users/recommendations', 'UsersHomepage::recommendations', ['filter' => 'usersAuth']);
+$routes->get('users/activities/recommended', 'UsersHomepage::recommendedActivities', ['filter' => 'usersAuth']);
+$routes->post('users/recommendations/generate', 'UsersHomepage::generateRecommendations', ['filter' => 'usersAuth']);
 $routes->post('users/updateProfile', 'UsersHomepage::updateProfile', ['filter' => 'usersAuth']);
 $routes->post('users/updateObjectif', 'UsersHomepage::updateObjectif', ['filter' => 'usersAuth']);
+
+// --- Front office: santé utilisateur ---
+$routes->group('users/health', ['filter' => 'usersAuth'], function ($routes) {
+    $routes->get('/', 'UserHealthController::me');
+    $routes->post('save', 'UserHealthController::saveMe');
+    $routes->post('calculate', 'UserHealthController::calculerIMC');
+});

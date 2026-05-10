@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\UserHealthModel;
+
 class UsersAuth extends BaseController
 {
     // ─────────────────────────────────────────
@@ -172,10 +174,9 @@ class UsersAuth extends BaseController
             ]);
         }
 
-        $taille  = (float) $this->request->getPost('taille');
-        $poids   = (float) $this->request->getPost('poids');
+        $taille = (float) $this->request->getPost('taille');
+        $poids  = (float) $this->request->getPost('poids');
         $tailleM = $taille / 100;
-        $imc     = round($poids / ($tailleM * $tailleM), 2);
 
         // Création de l'utilisateur
         $userModel = new \App\Models\UserModel();
@@ -189,13 +190,11 @@ class UsersAuth extends BaseController
             'role'           => 'user',
         ]);
 
-        // Enregistrement de la mesure de santé initiale dans user_health
-        $db = \Config\Database::connect();
-        $db->table('user_health')->insert([
-            'user_id'     => $userId,
-            'taille'      => $tailleM,
-            'poids'       => $poids,
-            'imc'         => $imc,
+        // Enregistrement de la mesure de santé initiale via le modèle (calcul IMC centralisé)
+        $userHealthModel = new UserHealthModel();
+        $userHealthModel->sauvegarder((int) $userId, [
+            'taille' => $tailleM,
+            'poids' => $poids,
             'date_mesure' => date('Y-m-d H:i:s'),
         ]);
 

@@ -66,12 +66,12 @@ class UserHealthController extends ResourceController
      */
     public function save()
     {
-        $user_id = $this->request->getPost('user_id');
+        $user_id = $this->request->getPost('user_id') ?? session()->get('id');
 
         $data = [
             'taille' => $this->request->getPost('taille'),
             'poids'  => $this->request->getPost('poids'),
-            'date_mesure' => date('Y-m-d')
+            'date_mesure' => date('Y-m-d H:i:s')
         ];
 
         if (!$user_id) {
@@ -87,6 +87,58 @@ class UserHealthController extends ResourceController
         return $this->respond([
             'success' => true,
             'message' => 'Données santé enregistrées'
+        ]);
+    }
+
+    /**
+     * Front office: données santé de l'utilisateur connecté
+     */
+    public function me()
+    {
+        $userId = (int) session()->get('id');
+
+        if ($userId <= 0) {
+            return $this->failUnauthorized('Utilisateur non connecté');
+        }
+
+        $data = $this->userHealthModel->getParUser($userId);
+
+        if (!$data) {
+            return $this->failNotFound('Aucune donnée santé pour cet utilisateur');
+        }
+
+        return $this->respond([
+            'success' => true,
+            'data' => $data,
+        ]);
+    }
+
+    /**
+     * Front office: sauvegarde santé utilisateur connecté
+     */
+    public function saveMe()
+    {
+        $userId = (int) session()->get('id');
+
+        if ($userId <= 0) {
+            return $this->failUnauthorized('Utilisateur non connecté');
+        }
+
+        $data = [
+            'taille' => $this->request->getPost('taille'),
+            'poids'  => $this->request->getPost('poids'),
+            'date_mesure' => date('Y-m-d H:i:s'),
+        ];
+
+        $result = $this->userHealthModel->sauvegarder($userId, $data);
+
+        if (!$result) {
+            return $this->failServerError('Erreur lors de la sauvegarde');
+        }
+
+        return $this->respond([
+            'success' => true,
+            'message' => 'Données santé enregistrées',
         ]);
     }
 

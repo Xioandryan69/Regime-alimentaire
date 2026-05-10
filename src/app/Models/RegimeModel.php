@@ -17,6 +17,7 @@ class RegimeModel extends Model
         'calories', 
         'prix', 
         'duree_jours',
+        'variation_poids',
         'pourcentage_viande',
         'pourcentage_poisson',
         'pourcentage_volaille'

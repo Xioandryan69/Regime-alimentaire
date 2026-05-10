@@ -104,51 +104,60 @@
                             <?php endif; ?>
                             
                             <p class="text-muted mb-4">Sélectionnez l'un des 3 objectifs ci-dessous pour adapter vos futurs programmes :</p>
-                            
-                            <div class="row g-3">
-                                <!-- ID 1 = Perte de poids -->
-                                <div class="col-12">
-                                    <form action="<?= base_url('users/updateObjectif') ?>" method="post">
-                                        <?= csrf_field() ?>
-                                        <input type="hidden" name="objectif_id" value="1">
-                                        <button type="submit" class="btn btn-outline-primary w-100 p-3 text-start d-flex align-items-center rounded-3">
-                                            <i class="fas fa-arrow-down fa-2x me-3" style="width: 40px;"></i>
-                                            <div>
-                                                <h6 class="fw-bold mb-0">Réduire son poids</h6>
-                                                <small>Perdre des kilos de manière saine</small>
-                                            </div>
-                                        </button>
-                                    </form>
+
+                            <?php
+                                $objectifAugmenterId = 0;
+                                $objectifReduireId = 0;
+                                $objectifImcId = 0;
+
+                                if (!empty($objectifs)) {
+                                    foreach ($objectifs as $objectif) {
+                                        $nom = strtolower(trim($objectif['nom']));
+
+                                        if (str_contains($nom, 'prise') || str_contains($nom, 'augment')) {
+                                            $objectifAugmenterId = (int) $objectif['id'];
+                                        } elseif (str_contains($nom, 'perte') || str_contains($nom, 'redu')) {
+                                            $objectifReduireId = (int) $objectif['id'];
+                                        } elseif (str_contains($nom, 'maintien') || str_contains($nom, 'imc')) {
+                                            $objectifImcId = (int) $objectif['id'];
+                                        }
+                                    }
+                                }
+                            ?>
+
+                            <form action="<?= base_url('users/updateObjectif') ?>" method="post">
+                                <?= csrf_field() ?>
+
+                                <div class="list-group mb-3">
+                                    <label class="list-group-item d-flex align-items-center gap-3 py-3">
+                                        <input class="form-check-input m-0" type="radio" name="objectif_id" value="<?= esc($objectifAugmenterId) ?>" <?= ((int) $currentObjectifId === (int) $objectifAugmenterId) ? 'checked' : '' ?> required>
+                                        <span>
+                                            <span class="d-block fw-bold">Augmenter poids</span>
+                                            <small class="text-muted">Prise de poids saine</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="list-group-item d-flex align-items-center gap-3 py-3">
+                                        <input class="form-check-input m-0" type="radio" name="objectif_id" value="<?= esc($objectifReduireId) ?>" <?= ((int) $currentObjectifId === (int) $objectifReduireId) ? 'checked' : '' ?> required>
+                                        <span>
+                                            <span class="d-block fw-bold">Réduire poids</span>
+                                            <small class="text-muted">Perte de poids progressive</small>
+                                        </span>
+                                    </label>
+
+                                    <label class="list-group-item d-flex align-items-center gap-3 py-3">
+                                        <input class="form-check-input m-0" type="radio" name="objectif_id" value="<?= esc($objectifImcId) ?>" <?= ((int) $currentObjectifId === (int) $objectifImcId) ? 'checked' : '' ?> required>
+                                        <span>
+                                            <span class="d-block fw-bold">Atteindre IMC idéal</span>
+                                            <small class="text-muted">Atteindre ou maintenir un IMC normal</small>
+                                        </span>
+                                    </label>
                                 </div>
-                                <!-- ID 2 = Prise de poids -->
-                                <div class="col-12">
-                                    <form action="<?= base_url('users/updateObjectif') ?>" method="post">
-                                        <?= csrf_field() ?>
-                                        <input type="hidden" name="objectif_id" value="2">
-                                        <button type="submit" class="btn btn-outline-success w-100 p-3 text-start d-flex align-items-center rounded-3">
-                                            <i class="fas fa-arrow-up fa-2x me-3" style="width: 40px;"></i>
-                                            <div>
-                                                <h6 class="fw-bold mb-0">Augmenter son poids</h6>
-                                                <small>Gagner en masse musculaire et vitalité</small>
-                                            </div>
-                                        </button>
-                                    </form>
-                                </div>
-                                <!-- ID 3 = Maintien du poids -->
-                                <div class="col-12">
-                                    <form action="<?= base_url('users/updateObjectif') ?>" method="post">
-                                        <?= csrf_field() ?>
-                                        <input type="hidden" name="objectif_id" value="3">
-                                        <button type="submit" class="btn btn-outline-info w-100 p-3 text-start d-flex align-items-center rounded-3">
-                                            <i class="fas fa-balance-scale fa-2x me-3" style="width: 40px;"></i>
-                                            <div>
-                                                <h6 class="fw-bold mb-0">Atteindre / Maintenir son IMC idéal</h6>
-                                                <small>Trouver le poids parfait selon votre taille</small>
-                                            </div>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+
+                                <button type="submit" class="btn btn-warning w-100 fw-semibold">
+                                    <i class="fas fa-save me-2"></i> Enregistrer mon objectif
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -182,6 +191,7 @@
                             
                             <div class="mt-4 text-center">
                                 <a href="<?= base_url('users/recommendations') ?>" class="btn btn-outline-primary w-100"><i class="fas fa-search me-1"></i> Obtenir de nouveaux programmes</a>
+                                <a href="<?= base_url('users/activities/recommended') ?>" class="btn btn-outline-success w-100 mt-2"><i class="fas fa-table me-1"></i> Tableau activites recommandees</a>
                             </div>
                         </div>
                     </div>

@@ -88,31 +88,31 @@ INSERT INTO regime_user (id_user, type_regime_id) VALUES
 (6, 3);  -- Jean     → Volaille
  
 -- regimes (5 régimes)
-INSERT INTO regimes (nom, description, regime_user_id, calories, prix, duree_jours) VALUES
+INSERT INTO regimes (nom, description, regime_user_id, calories, prix, duree_jours, variation_poids) VALUES
 (
   'Régime Méditerranéen',
   'Régime équilibré inspiré du bassin méditerranéen. Riche en légumes, poisson et huile d\'olive. Idéal pour une perte de poids progressive.',
-  1, 1600, 45000.00, 30
+  1, 1600, 45000.00, 30, -2.00
 ),
 (
   'Programme Prise de Masse',
   'Apport calorique élevé centré sur les protéines animales et les glucides complexes. À combiner avec la musculation.',
-  2, 2800, 60000.00, 45
+  2, 2800, 60000.00, 45, 3.50
 ),
 (
   'Régime Équilibré IMC Cible',
   'Plan nutritionnel personnalisé pour atteindre et maintenir un IMC dans la fourchette normale (18.5–24.9).',
-  3, 2000, 75000.00, 60
+  3, 2000, 75000.00, 60, 0.00
 ),
 (
   'Cure Détox 21 jours',
   'Programme court axé sur la purification de l\'organisme. Riche en fibres, légumes verts et protéines légères.',
-  4, 1400, 35000.00, 21
+  4, 1400, 35000.00, 21, -1.50
 ),
 (
   'Reprise de Poids Saine',
   'Accompagnement pour les personnes en insuffisance pondérale. Apports denses et nutritifs, bonnes graisses et protéines de qualité.',
-  5, 2600, 50000.00, 30
+  5, 2600, 50000.00, 30, 2.50
 );
  
 -- activites (5 activités)

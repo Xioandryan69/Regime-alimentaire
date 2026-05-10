@@ -79,6 +79,7 @@ CREATE TABLE regimes (
     calories INT,
     prix DECIMAL(10, 2),
     duree_jours INT,
+    variation_poids DECIMAL(5, 2) DEFAULT 0,
     pourcentage_viande INT DEFAULT 0,
     pourcentage_poisson INT DEFAULT 0,
     pourcentage_volaille INT DEFAULT 0,
