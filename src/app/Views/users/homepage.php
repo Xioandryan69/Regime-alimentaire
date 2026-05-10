@@ -47,6 +47,28 @@
                     <p class="text-muted">Bienvenue sur votre espace personnel My Régime</p>
                 </div>
             </div>
+
+            <?php if(session()->getFlashdata('success')): ?>
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <?= session()->getFlashdata('success') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php if(session()->getFlashdata('error')): ?>
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <?= session()->getFlashdata('error') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
             
             <div class="row g-4 mb-5">
                 <!-- Complétion du profil -->
@@ -85,6 +107,33 @@
                             <div class="mt-4 text-center">
                                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProfileModal"><i class="fas fa-edit me-1"></i>Modifier mes infos</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white py-3">
+                            <h5 class="mb-0 fw-bold"><i class="fas fa-wallet me-2 text-info"></i> Portefeuille</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted mb-3">Solde actuel :</p>
+                            <div class="d-flex align-items-end justify-content-between mb-4">
+                                <div>
+                                    <h2 class="fw-bold mb-0"><?= esc($userWalletSolde) ?> €</h2>
+                                    <small class="text-muted">Votre crédit disponible</small>
+                                </div>
+                                <i class="fas fa-coins fa-2x text-warning"></i>
+                            </div>
+
+                            <form action="<?= base_url('users/redeemCode') ?>" method="post">
+                                <?= csrf_field() ?>
+                                <div class="mb-3">
+                                    <label for="code_portefeuille" class="form-label">Entrez votre code portefeuille</label>
+                                    <input type="text" class="form-control" id="code_portefeuille" name="code_portefeuille" placeholder="CODE1234" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100"><i class="fas fa-check-circle me-1"></i>Activer le code</button>
+                            </form>
                         </div>
                     </div>
                 </div>

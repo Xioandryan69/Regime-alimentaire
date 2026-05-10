@@ -56,3 +56,4 @@ $routes->post('users/register/step2',  'UsersAuth::registerStep2Check'); // Trai
 $routes->get('users/homepage', 'UsersHomepage::index', ['filter' => 'usersAuth']);
 $routes->post('users/updateProfile', 'UsersHomepage::updateProfile', ['filter' => 'usersAuth']);
 $routes->post('users/updateObjectif', 'UsersHomepage::updateObjectif', ['filter' => 'usersAuth']);
+$routes->post('users/redeemCode', 'UsersHomepage::redeemCode', ['filter' => 'usersAuth']);

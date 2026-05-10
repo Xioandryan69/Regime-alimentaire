@@ -2,8 +2,20 @@
 
 namespace App\Controllers;
 
+use App\Models\CodeModel;
+use App\Models\WalletModel;
+
 class UsersHomepage extends BaseController
 {
+    protected CodeModel $codeModel;
+    protected WalletModel $walletModel;
+
+    public function __construct()
+    {
+        $this->codeModel = new CodeModel();
+        $this->walletModel = new WalletModel();
+    }
+
     public function index()
     {
         $db = \Config\Database::connect();
@@ -51,6 +63,8 @@ class UsersHomepage extends BaseController
             ORDER BY rec.date_debut DESC";
         $userProgrammes = $db->query($userActivitesRegimesQuery)->getResultArray();
 
+        $wallet = $this->walletModel->getOuCreerParUser(session()->get('id'));
+
         $data = [
             'userName'        => $userName,
             'userLastName'    => $userLastName,
@@ -61,10 +75,48 @@ class UsersHomepage extends BaseController
             'userImc'       => round($userImc, 2),
             'userObjectif' => $userObjectif,
             'userProgrammes' => $userProgrammes,
-            'dateNaissance' => $dateNaissance
+            'dateNaissance' => $dateNaissance,
+            'userWalletSolde' => number_format((float)$wallet['solde'], 2, ',', ' '),
         ];
 
         return view('users/homepage', $data);
+    }
+
+    public function redeemCode()
+    {
+        $userId = session()->get('id');
+        $codeString = trim($this->request->getPost('code_portefeuille'));
+
+        if (empty($codeString)) {
+            session()->setFlashdata('error', 'Veuillez saisir un code portefeuille.');
+            return redirect()->to('users/homepage');
+        }
+
+        $code = $this->codeModel->trouverValide(strtolower($codeString));
+
+        if (!$code) {
+            session()->setFlashdata('error', 'Code invalide ou déjà utilisé.');
+            return redirect()->to('users/homepage');
+        }
+
+        $credited = $this->walletModel->crediter($userId, (float) $code['valeur']);
+        $marked = $this->codeModel->marquerUtilise($code['id']);
+
+        if (!$credited || !$marked) {
+            session()->setFlashdata('error', 'Impossible d’activer ce code pour le moment.');
+            return redirect()->to('users/homepage');
+        }
+
+        $db = \Config\Database::connect();
+        $db->table('transactions')->insert([
+            'user_id' => $userId,
+            'code_id' => $code['id'],
+            'montant' => (float) $code['valeur'],
+            'date_transaction' => date('Y-m-d H:i:s'),
+        ]);
+
+        session()->setFlashdata('success', 'Code accepté ! Votre solde a été crédité de ' . number_format((float) $code['valeur'], 2, ',', ' ') . ' €');
+        return redirect()->to('users/homepage');
     }
 
     // -- Mise à jour du profil (Ages, infos, Poids, etc.)

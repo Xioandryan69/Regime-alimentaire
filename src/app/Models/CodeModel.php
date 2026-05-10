@@ -18,8 +18,10 @@ class CodeModel extends Model
 
     public function trouverValide(string $code): ?array
     {
-        return $this->where('code', trim($code))
-            ->where('utilise', 0)
+        $normalizedCode = strtoupper(trim($code));
+
+        return $this->where('utilise', 0)
+            ->where('code', $normalizedCode)
             ->first();
     }
 
