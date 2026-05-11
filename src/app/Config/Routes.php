@@ -67,3 +67,10 @@ $routes->group('users/health', ['filter' => 'usersAuth'], function ($routes) {
     $routes->post('save', 'UserHealthController::saveMe');
     $routes->post('calculate', 'UserHealthController::calculerIMC');
 });
+// --wallet
+$routes->group('users', ['filter' => 'usersAuth'],function($routes){
+    $routes->get('wallet/', 'WalletController::index');
+    $routes->post('wallet/verify', 'WalletController::verifyCode');
+    $routes->get('wallet/gold', 'GoldController::index');
+    $routes->post('wallet/gold/buy', 'GoldController::buy');
+});
