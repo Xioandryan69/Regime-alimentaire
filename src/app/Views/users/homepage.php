@@ -192,6 +192,9 @@
                             <div class="mt-4 text-center">
                                 <a href="<?= base_url('users/recommendations') ?>" class="btn btn-outline-primary w-100"><i class="fas fa-search me-1"></i> Obtenir de nouveaux programmes</a>
                                 <a href="<?= base_url('users/activities/recommended') ?>" class="btn btn-outline-success w-100 mt-2"><i class="fas fa-table me-1"></i> Tableau activites recommandees</a>
+                                 <a href="<?= base_url('users/wallet/') ?>" class="btn btn-outline-success w-100 mt-2"><i class="fas fa-table me-1"></i> 💰 Mon Portefeuille</a>
+                                  <a href="<?= base_url('users/wallet/gold') ?>" class="btn btn-outline-success w-100 mt-2"><i class="fas fa-table me-1"></i> ✨ Passer GOLD (-15%</a>
+
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\WalletModel;
+use App\Models\CodeModel;
+use App\Models\TransactionModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class WalletController extends ResourceController
@@ -19,12 +21,30 @@ class WalletController extends ResourceController
      */
     public function index()
     {
+        //-json 
+        /*
         $data = $this->walletModel->findAll();
 
         return $this->respond([
             'success' => true,
             'data' => $data
         ]);
+        */
+                $userId = session()->get('id');
+ 
+        if (!$userId) {
+            return redirect()->to('/users/login');
+        }
+ 
+        // BUG CORRIGÉ : récupère ou crée le wallet, ne renvoie plus findAll()
+        $wallet = $this->walletModel->getOuCreerParUser((int) $userId);
+ 
+        return view('users/wallet/wallet', [
+            'wallet' => $wallet
+        ]);
+
+
+        
     }
 
     /**
@@ -125,4 +145,58 @@ class WalletController extends ResourceController
             'message' => 'Wallet supprimé'
         ]);
     }
+
+    public function verifyCode()
+{
+    $codeValue = $this->request->getPost('code');
+
+    $codeModel = new CodeModel();
+    $walletModel = new WalletModel();
+    $transactionModel = new TransactionModel();
+
+    $userId = session()->get('user_id');
+
+    $code = $codeModel
+        ->where('code', $codeValue)
+        ->where('utilise', 0)
+        ->first();
+
+    if(!$code)
+    {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Code invalide ou déjà utilisé'
+        ]);
+    }
+
+    $wallet = $walletModel
+        ->where('user_id', $userId)
+        ->first();
+
+    $newBalance =
+        $wallet['solde'] + $code['valeur'];
+
+    $walletModel->update(
+        $wallet['id'],
+        ['solde' => $newBalance]
+    );
+
+    $codeModel->update(
+        $code['id'],
+        ['utilise' => 1]
+    );
+
+    $transactionModel->insert([
+        'user_id' => $userId,
+        'code_id' => $code['id'],
+        'montant' => $code['valeur'],
+        'date_transaction' => date('Y-m-d H:i:s')
+    ]);
+
+    return $this->response->setJSON([
+        'success' => true,
+        'message' => 'Wallet crédité avec succès',
+        'new_balance' => number_format($newBalance,2)
+    ]);
+}
 }
