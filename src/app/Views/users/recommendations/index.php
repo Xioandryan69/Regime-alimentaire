@@ -207,10 +207,10 @@
                     </div>
 
                     <div class="card shadow-sm border-0">
-                        <div class="card-header bg-white py-3">
-                            <h5 class="mb-0 fw-bold"><i class="fas fa-clipboard-list me-2 text-warning"></i>
-                                Recommandations enregistrées</h5>
-                        </div>
+                    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fw-bold"><i class="fas fa-clipboard-list me-2 text-warning"></i> Recommandations enregistrées</h5>
+                        <a href="<?= base_url('users/recommendations/exportPdf') ?>" class="btn btn-sm btn-danger"><i class="fas fa-file-pdf me-1"></i> Exporter PDF</a>
+                    </div>
                         <div class="card-body">
                             <?php if (!empty($savedRecommendations)): ?>
                                 <div class="list-group list-group-flush">
